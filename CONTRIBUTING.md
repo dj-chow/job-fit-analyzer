@@ -1,6 +1,6 @@
 # Contributing
 
-This tool scores job fit for specific roles. The main way to contribute is adding new roles. You can also improve existing role calibration or report scoring issues.
+This tool scores job fit for set roles. The main way to help is to add new roles. You can also tune how roles are scored or flag bad scores.
 
 ## File Structure
 
@@ -27,114 +27,114 @@ job-fit-analyzer/
 └── CLAUDE.md                      # Writing style rules for all content
 ```
 
-The key files for contributors: `roles.md` routes to the right criteria file. Each criteria file in `role-criteria/` defines scored dimensions with weights. `scoring-heuristics.md` has the shared rules that apply to every role.
+The key files for those who help: `roles.md` routes to the right criteria file. Each file in `role-criteria/` lists scored areas with weights. `scoring-heuristics.md` holds the shared rules for every role.
 
 ## Adding a New Role
 
-This is the biggest contribution you can make. The planned roles are listed in `roles.md` under "Unsupported Roles."
+This is the biggest way you can help. Planned roles are listed in `roles.md` under "Unsupported Roles."
 
 ### Step 1: Pick a role you know well
 
-You need real hiring context for this. "I've hired 5 data scientists" or "I've been a UX designer for 6 years" - that kind of knowledge. Book smarts alone won't produce good calibration.
+You need real hiring context. "I've hired 5 data folks" or "I've been a UX person for 6 years." That kind of know-how. Book smarts alone won't make good scoring.
 
 ### Step 2: Define the core question
 
-Every role criteria file starts with one question. It captures what the role really needs. Look at the existing ones for the pattern:
+Each role criteria file starts with one question. It states what the role truly needs. Look at the ones we have for the pattern:
 
-- PM: "Can this person own a product area, make good prioritization decisions, and ship outcomes through cross-functional teams?"
-- AI PM: "Can this person build AI-powered products that work for real users, while navigating the uncertainty that comes with probabilistic systems?"
+- PM: "Can this person own a product area, make good calls on what to build, and ship results through teams?"
+- AI PM: "Can this person build AI products that work for real users, while handling the doubt that comes with models?"
 
-Write yours in one sentence. If you can't, the scope is too broad.
+Write yours in one sentence. If you can't, the scope is too wide.
 
-### Step 3: Define 5-7 scored dimensions
+### Step 3: Define 5-7 scored areas
 
-Each dimension needs:
+Each area needs:
 - A name and weight (all weights must add up to 100%)
-- A one-line description of what it measures
+- A one-line note on what it checks
 - A scoring rubric with 5 levels: Strong (80-100), Solid (60-79), Partial (40-59), Weak (20-39), Gap (0-19)
 
-Look at `role-criteria/product-management.md` as a template. Copy the structure exactly.
+Look at `role-criteria/product-management.md` as a guide. Copy the form exactly.
 
-Rules for dimensions:
-- 5 dimensions minimum, 7 maximum
-- The top-weighted dimension should be the single strongest signal for the role
-- No dimension should weigh less than 10%
-- Every level in the rubric needs a concrete description, not just "good" or "bad"
+Rules for areas:
+- 5 areas at least, 7 at most
+- The top-weight area should be the best signal for the role
+- No area should weigh less than 10%
+- Every level in the rubric needs a clear note, not just "good" or "bad"
 
-### Step 4: Add seniority calibration
+### Step 4: Add seniority tuning
 
-Define how the bar shifts across levels (junior, mid, senior, director+). Same dimensions apply at every level. The expectations change.
+State how the bar shifts across levels (junior, mid, senior, director+). The same areas apply at every level. The bar moves.
 
 ### Step 5: Add common scoring traps
 
-List 3-5 mistakes a scorer might make for this role. These are patterns where the math gives the wrong answer. See the "Common Scoring Traps" section in the PM criteria for examples.
+List 3-5 errors a scorer might make for this role. These are cases where the math gives the wrong answer. See the "Common Scoring Traps" part in the PM criteria for samples.
 
 ### Step 6: Create the file and update roles.md
 
 1. Save your criteria file as `role-criteria/your-role-name.md`
 2. Add an entry to `roles.md` under "Launch Roles" with:
    - What titles it covers
-   - What titles it does NOT cover (and where to route those instead)
+   - What titles it does NOT cover (and where to route those)
    - The criteria file path
 3. Remove it from the "Unsupported Roles" list
 
 ### Step 7: Test it
 
-Run the tool against 3+ real candidates you already know the answer for. If you've hired or evaluated people for this role, use those as calibration cases. The score should land within 10 points of your gut assessment. If it doesn't, adjust your weights and rubrics.
+Run the tool on 3+ real people you already know the answer for. If you've hired or judged people for this role, use those as test cases. The score should land within 10 points of your gut feel. If it doesn't, tweak your weights and rubrics.
 
-### What a good submission looks like
+### What a good one looks like
 
-- Criteria file follows the exact structure of existing ones
-- Weights reflect real hiring priorities, not equal distribution
-- Rubric descriptions are specific enough that two different people would score the same candidate within 10 points
-- Seniority calibration exists
+- Criteria file follows the exact form of the ones we have
+- Weights reflect real hiring needs, not equal splits
+- Rubric notes are clear enough that two people would score the same person within 10 points
+- Seniority tuning exists
 - At least 3 scoring traps listed
-- Tested against real candidates (mention this in your PR)
+- Tested on real people (say so in your PR)
 
-## Improving Existing Role Calibration
+## Improving Existing Role Scoring
 
-If a role's weights or rubrics feel off, you can propose changes. But you need evidence.
+If a role's weights or rubrics feel off, you can suggest changes. But you need proof.
 
-### What counts as evidence
+### What counts as proof
 
-- "I ran this against 5 candidates I've interviewed. The tool scored X at 78 but they bombed the interview because Y." That's useful.
-- "I think Technical Fluency should weigh more for PMs." That's an opinion, not evidence.
+- "I ran this on 5 people I've met in person. The tool scored X at 78 but they bombed the chat because Y." That's useful.
+- "I think Tech Skill should weigh more for PMs." That's a view, not proof.
 
 ### How to submit
 
-1. Open an issue describing the scoring gap
-2. Include the specific dimension, the current weight/rubric, and your proposed change
-3. Explain why with real examples (anonymize candidates)
-4. If possible, show that the change improves accuracy across multiple cases, not just one
+1. Open an issue about the scoring gap
+2. Include the area, the current weight/rubric, and your fix
+3. Say why, with real cases (hide names)
+4. If you can, show the fix helps across many cases, not just one
 
-Don't submit weight changes that fix one edge case but break the common case.
+Don't submit weight changes that fix one edge case but break the normal case.
 
 ## Reporting Scoring Issues
 
-Sometimes the tool gives a score that's clearly wrong. Not 5 points off - more like 20+ points off from what any reasonable person would say.
+At times the tool gives a score that is clearly wrong. Not 5 points off, but 20+ points off from what any fair person would say.
 
 ### How to report
 
 Open an issue with:
-- The role type (PM, Engineering, etc.)
+- The role type (PM, Eng, etc.)
 - The score the tool gave
 - What you think the right score is (roughly)
-- Why the gap exists. Which dimension scored wrong? Was evidence ignored? Was adjacent experience over-credited?
+- Why the gap exists. Which area scored wrong? Was proof missed? Was nearby work over-counted?
 
-You don't need to include the full resume or LinkedIn. But include enough context to understand the issue.
+You don't need to share the full resume or LinkedIn. But share enough to make the issue clear.
 
 ### Common causes of bad scores
 
-- The role criteria doesn't account for a common career path into that role
-- A dimension rubric has a blind spot (e.g., doesn't recognize open source work as "shipped product")
-- The seniority calibration is wrong for a specific context (startup vs enterprise)
+- The role criteria misses a common path into that role
+- An area rubric has a blind spot (e.g., doesn't count open source work as "shipped product")
+- The seniority tuning is wrong for a given context (startup vs large firm)
 
-If you can trace the issue to a specific rubric line, that makes fixing it much faster.
+If you can trace the issue to a set rubric line, that makes the fix much faster.
 
 ## Writing Style
 
-All content in this repo follows the rules in `CLAUDE.md`. The short version:
+All text in this repo follows the rules in `CLAUDE.md`. The short form:
 - No em dashes
-- Simple words, short sentences
+- Simple words, short lines
 - Write like a person, not a press release
-- Target readability score of 4-5 on the Automated Readability Index
+- Target a score of 4-5 on the Automated Readability Index

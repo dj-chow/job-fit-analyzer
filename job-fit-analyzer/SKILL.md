@@ -5,89 +5,89 @@ description: Analyze job fit when a user uploads their resume and LinkedIn profi
 
 # Job Fit Analyzer
 
-Evaluate how well a candidate's actual experience matches a job. Analyzes the work they've done, not the titles they've held.
+Check how well a person's real work fits a job. Look at what they did, not their titles.
 
 ## What This Skill Does NOT Do
 
-- **Not keyword matching.** ATS tools already do that. This analyzes the substance of experience.
-- **Not resume rewriting.** This evaluates fit. It flags where the resume undersells the candidate, but does not rewrite it.
-- **Not generic career advice.** Every output must be specific to this candidate and this job description.
-- **Not biased toward any role type.** This works for engineering, product, design, marketing, sales, operations, data science, or any other function. Adapt your evaluation criteria to the role.
+- **Not keyword matching.** ATS tools do that. This looks at the real work done.
+- **Not resume writing.** This checks fit. It flags where the resume sells short, but does not rewrite it.
+- **Not generic advice.** Every output must be about this person and this job.
+- **Not tied to one role type.** This works for any role. Adapt your criteria to fit.
 
 ## Inputs Required
 
-Before starting analysis, you MUST have all three:
+Before you start, you MUST have all three:
 
-1. **Resume** (PDF or text): the candidate's current resume
-2. **LinkedIn profile** (PDF or text): the candidate's LinkedIn export
+1. **Resume** (PDF or text): the person's current resume
+2. **LinkedIn profile** (PDF or text): the person's LinkedIn export
 3. **Job description** (pasted text or PDF): the target role
 
-If any input is missing, ask for it before proceeding. Do not attempt a partial analysis.
+If any input is missing, ask for it first. Do not try a partial run.
 
 ## Analysis Process
 
-Work through these stages in order. Do not skip stages or combine them.
+Work through these stages in order. Do not skip or merge them.
 
 ### Stage 1: Decode the Job Description
 
-Before looking at the candidate, understand what this role actually needs.
+Before looking at the person, learn what this role needs.
 
-1. **Identify the role type** (engineering, product, design, marketing, sales, ops, data, etc.) and seniority level
-2. **Extract the 5-7 core requirements**: not every bullet point, just the ones that would actually determine a hire/no-hire decision. Distinguish between stated requirements and implied ones (e.g., "fast-paced environment" implies comfort with ambiguity and rapid prioritization)
-3. **Classify each requirement as a Hard Gate or Soft Signal.** Load [references/scoring-heuristics.md](references/scoring-heuristics.md) and follow the classification rules in the "Layer 1: Screen Check" section. Hard gates are specific, verifiable, non-negotiable requirements (specific tools, platforms, domains, certifications). Soft signals are general competencies assessed on a spectrum. Most JDs have 1-3 hard gates and 5-10 soft signals.
-4. **Identify the archetype**: what kind of person would the hiring manager be thrilled to hire? What's their ideal background? What company or role would they be coming from?
-5. **Determine which role criteria to use.** Load [references/roles.md](references/roles.md) to identify the matching role. Then load the corresponding file from `references/role-criteria/` for scoring dimensions and weights. If the role doesn't match any supported role, use common heuristics only and flag that calibration is less precise.
-6. **Note the company context**: stage (startup/growth/enterprise), industry, and any signals about team structure or culture
+1. **Find the role type** (engineering, product, design, sales, ops, data, etc.) and level.
+2. **Pull out 5-7 core needs**: not every bullet, just the ones that drive a hire or no-hire call. Split stated needs from implied ones. For example, "fast-paced" implies comfort with chaos and quick calls.
+3. **Sort each need as a Hard Gate or Soft Signal.** Load [references/scoring-heuristics.md](references/scoring-heuristics.md) and follow the rules in "Layer 1: Screen Check." Hard gates are specific, provable, must-have items (tools, platforms, domains, certs). Soft signals are broad skills on a spectrum. Most JDs have 1-3 hard gates and 5-10 soft signals.
+4. **Find the ideal hire**: what kind of person would thrill the hiring manager? What's their dream background? What company or role would they come from?
+5. **Pick the right role criteria.** Load [references/roles.md](references/roles.md) to find the matching role. Then load the matching file from `references/role-criteria/` for scoring weights. If no role matches, use common rules only and flag that scoring is less precise.
+6. **Note the company context**: stage (startup, growth, or large company), industry, and any clues about team setup or culture.
 
-### Stage 2: Extract Candidate Experience
+### Stage 2: Extract What the Person Has Done
 
-Read both the resume and LinkedIn profile thoroughly. Your goal is to understand what this person has actually DONE, not what their titles say.
+Read both the resume and LinkedIn profile fully. Your goal is to learn what this person has really DONE, not what their titles say.
 
-1. **Map their career trajectory**: roles, companies, durations, progression pattern
-2. **Decompose each role into work activities.** Load [references/activity-framework.md](references/activity-framework.md) for the activity decomposition framework. Categorize what they did into: Strategic, Discovery, Definition, Execution, Growth, Technical, and Communication work.
-3. **Identify where title and work diverge.** Use the title-to-work mismatch patterns in the activity framework reference. A "Solutions Architect" who prioritized backlogs and defined requirements was doing product management. A "Business Analyst" who built data pipelines was doing data engineering. Surface these.
-4. **Corroborate across both documents.** LinkedIn often has richer context (descriptions, recommendations, activity). Resume may be sparse. Use LinkedIn to fill gaps in understanding, and note where the two documents tell different stories.
-5. **Separate the person from their resume.** A poorly written resume does not mean a poor candidate. If the resume is vague but LinkedIn reveals strong, specific experience: the person is stronger than their resume suggests. Flag this.
+1. **Map their career path**: roles, companies, time in each, and how they moved up.
+2. **Break each role into work types.** Load [references/activity-framework.md](references/activity-framework.md) for the framework. Sort what they did into: Strategic, Discovery, Definition, Execution, Growth, Technical, and Communication work.
+3. **Find where title and work don't match.** Use the mismatch patterns in the activity framework. A "Solutions Architect" who ran backlogs and wrote requirements was doing product work. A "Business Analyst" who built data pipelines was doing data engineering. Surface these.
+4. **Cross-check both documents.** LinkedIn often has richer detail (descriptions, endorsements, activity). The resume may be sparse. Use LinkedIn to fill gaps, and note where the two documents tell different stories.
+5. **Split the person from their resume.** A weak resume does not mean a weak person. If the resume is vague but LinkedIn shows strong, specific work, the person is better than their resume shows. Flag this.
 
-### Stage 3: Screen Check (Hard Gate Evaluation)
+### Stage 3: Screen Check (Hard Gate Review)
 
-Before scoring dimensions, check whether this candidate would survive initial screening. This uses the hard gate requirements identified in Stage 1.
+Before scoring, check if this person would survive the first screen. Use the hard gates from Stage 1.
 
-For each hard gate requirement:
-1. Search the candidate's resume and LinkedIn for direct evidence
-2. If no direct evidence, search for adjacent experience
-3. Classify as **Pass** (direct evidence), **Partial** (adjacent or outdated), or **Fail** (no evidence)
+For each hard gate:
+1. Search the resume and LinkedIn for direct proof.
+2. If no direct proof, search for nearby experience.
+3. Mark as **Pass** (direct proof), **Partial** (nearby or outdated), or **Fail** (no proof).
 
-Then produce a screen verdict following the rules in `scoring-heuristics.md`:
-- **Likely Passes Screen**: All hard gates Pass, or at most 1 Partial
-- **Borderline**: 1 Fail with strong adjacent evidence, or 2+ Partials
-- **Likely Filtered Out**: 2+ Fails, or 1 Fail on a role-defining requirement
+Then give a screen verdict using the rules in `scoring-heuristics.md`:
+- **Likely Passes Screen**: All hard gates Pass, or at most 1 Partial.
+- **Borderline**: 1 Fail with strong nearby proof, or 2+ Partials.
+- **Likely Filtered Out**: 2+ Fails, or 1 Fail on a must-have need.
 
-Be strict. "Worked with data teams" does not pass a "Python required" gate. Adjacent experience is Partial, not Pass. If the JD has no hard gates (all general competencies), note this and skip to Stage 4.
+Be strict. "Worked with data teams" does not pass a "Python required" gate. Nearby work is Partial, not Pass. If the JD has no hard gates, note this and skip to Stage 4.
 
-### Stage 4: Evaluate Fit
+### Stage 4: Score the Fit
 
-Now map the candidate to the job. This is activity-level matching, not title matching.
+Now map the person to the job. Match on work done, not titles held.
 
-**Step 4a: Score each dimension from the role criteria file.** Each supported role has 5-6 weighted dimensions. Score every dimension using the level descriptions in the role criteria file (Strong/Solid/Partial/Weak/Gap with numeric ranges).
+**Step 4a: Score each dimension from the role criteria file.** Each role has 5-6 weighted items. Score every item using the level notes in the file (Strong, Solid, Partial, Weak, or Gap with number ranges).
 
-**Step 4b: Calculate the overall score.** Follow the calculation method in `scoring-heuristics.md`:
-1. Score each dimension (0-100)
-2. Apply the weights from the role criteria
-3. Calculate the weighted average
-4. Apply the critical gap penalty (if any dimension is below 20)
-5. Apply the corroboration bonus (if 3+ dimensions have evidence in both documents)
-6. Override only if the math doesn't match reality, and explain why
+**Step 4b: Calculate the total score.** Follow the method in `scoring-heuristics.md`:
+1. Score each dimension (0-100).
+2. Apply the weights from the role criteria.
+3. Get the weighted average.
+4. Apply the critical gap penalty (if any dimension is below 20).
+5. Apply the backup bonus (if 3+ dimensions have proof in both documents).
+6. Override only if the math does not match reality, and say why.
 
-**Step 4c: Map to requirements.** For each of the 5-7 core requirements from Stage 1:
-1. Search for direct evidence in the candidate's background
-2. Search for adjacent evidence (work that develops the same capability under a different name)
-3. Assess depth: did they own it or contribute? How recently? For how long?
-4. Assign confidence: Strong Match / Partial Match / Gap
+**Step 4c: Map to needs.** For each of the 5-7 core needs from Stage 1:
+1. Search for direct proof in the person's background.
+2. Search for nearby proof (work that builds the same skill under a different name).
+3. Check depth: did they own it or just help? How recent? For how long?
+4. Assign confidence: Strong Match, Partial Match, or Gap.
 
-### Stage 5: Generate the Analysis
+### Stage 5: Write the Output
 
-Produce ALL of the following sections. Do not skip any.
+Produce ALL sections below. Do not skip any.
 
 ---
 
@@ -95,157 +95,157 @@ Produce ALL of the following sections. Do not skip any.
 
 ### 0. Screen Check
 
-Present the hard gate evaluation from Stage 3. This section comes FIRST, before any scoring.
+Show the hard gate results from Stage 3. This comes FIRST, before any scores.
 
 **Format:**
 
 | # | Hard Gate Requirement | Evidence | Verdict |
 |---|---|---|---|
-| 1 | [Specific requirement from JD] | [What was found in candidate's docs, or "No evidence"] | Pass / Partial / Fail |
+| 1 | [Specific need from JD] | [What was found, or "No evidence"] | Pass / Partial / Fail |
 
 **Screen Verdict: [Likely Passes Screen / Borderline / Likely Filtered Out]**
 
-If the verdict is "Likely Filtered Out," add a direct statement: "This candidate would probably be screened out before reaching a detailed evaluation. The fit score below shows how they'd perform IF they got past screening, but the hard gate gaps are the primary barrier."
+If the verdict is "Likely Filtered Out," add: "This person would likely be cut before a full review. The fit score below shows how they'd do IF they got past screening, but the hard gate gaps are the main barrier."
 
-If the verdict is "Borderline," add: "This candidate is on the edge. Whether they pass screening depends on the recruiter, the applicant pool, and how well the application frames adjacent experience."
+If the verdict is "Borderline," add: "This person is on the edge. Passing the screen depends on the recruiter, the applicant pool, and how well the application frames nearby experience."
 
-If "Likely Passes Screen," add: "No hard gate barriers identified. This candidate should reach the evaluation stage."
+If "Likely Passes Screen," add: "No hard gate barriers found. This person should reach the review stage."
 
-If the JD has no hard gates, state: "No hard gate requirements identified in this JD. All requirements are general competencies assessed on a spectrum. Screen check is not applicable - moving directly to fit scoring."
+If the JD has no hard gates, state: "No hard gate needs found in this JD. All needs are broad skills on a spectrum. Screen check does not apply. Moving to fit scoring."
 
 ### 1. Fit Score and Headline
 
 **Score: X/100** (or **Fit Score (if screened in): X/100** when screen verdict is "Likely Filtered Out")
 
-Provide a single score with a one-sentence headline summarizing the fit. The score reflects the candidate's actual capability match, not their resume presentation quality.
+Give a single score with a one-line summary of the fit. The score shows the person's real skill match, not their resume quality.
 
-When the screen verdict is "Likely Filtered Out," the headline must acknowledge the screening barrier first, then the conditional fit. Example: "Would likely be filtered out due to missing decision engine experience. If screened in, this is a solid PM with transferable skills."
+When the screen verdict is "Likely Filtered Out," the headline must note the screening barrier first, then the fit. Example: "Would likely be cut due to missing decision engine experience. If screened in, this is a solid PM with skills that transfer."
 
-When the screen verdict is "Borderline," acknowledge the risk: "Screening is a coin flip - the [specific hard gate] gap could go either way."
+When the screen verdict is "Borderline," note the risk: "Screening is a coin flip. The [specific hard gate] gap could go either way."
 
-Calibration guide:
-- **85-100:** Strong fit. Candidate could credibly perform this role based on proven experience.
-- **70-84:** Solid fit with manageable gaps. A good candidate who would need to close 1-2 specific areas.
-- **50-69:** Partial fit. Real strengths in some areas but significant gaps in others.
-- **30-49:** Stretch candidate. Adjacent experience exists but major capability gaps.
-- **Below 30:** Poor fit. Limited overlap between experience and role requirements.
+Scoring guide:
+- **85-100:** Strong fit. The person could do this role based on proven work.
+- **70-84:** Solid fit with small gaps. A good pick who would need to close 1-2 areas.
+- **50-69:** Partial fit. Real strengths in some areas but big gaps in others.
+- **30-49:** Stretch pick. Nearby experience exists but major skill gaps remain.
+- **Below 30:** Poor fit. Little overlap between experience and role needs.
 
 ### 2. Requirements Map
 
-A table mapping each core job requirement to the candidate's experience:
+A table mapping each core job need to the person's experience:
 
 | Requirement | Evidence From Candidate | Confidence | Source |
 |---|---|---|---|
-| [Requirement from JD] | [Specific experience that maps to this] | Strong / Partial / Gap | Resume / LinkedIn / Both |
+| [Need from JD] | [Specific experience that maps to this] | Strong / Partial / Gap | Resume / LinkedIn / Both |
 
-For each row, be specific. Don't say "has relevant experience." Say "Led 8-person team at BMO delivering risk reporting platform, directly parallel to the cross-functional leadership this role requires."
+For each row, be specific. Don't say "has relevant experience." Say "Led 8-person team at BMO building a risk reporting platform. This directly maps to the cross-team leadership this role needs."
 
 ### 3. Adjacent Work Recognition
 
-This is the highest-value section. Identify 2-4 instances where the candidate performed work relevant to this role under a different title or in a different context.
+This is the most useful section. Find 2-4 cases where the person did work that fits this role under a different title or in a different context.
 
-For each instance:
+For each case:
 - **What their title said:** [Official title]
-- **What they actually did:** [The work activity, described in the target role's language]
-- **Why it matters for this role:** [How this experience directly maps to a core requirement]
-- **Strength of evidence:** [How confident are you in this translation: strong, moderate, or speculative]
+- **What they really did:** [The work, described in the target role's language]
+- **Why it matters for this role:** [How it maps to a core need]
+- **Strength of proof:** [How sure are you: strong, moderate, or guess]
 
-If the candidate's career is a straight line to this role with matching titles, say so and skip this section.
+If the person's career is a straight line to this role with matching titles, say so and skip this section.
 
 ### 4. What the Hiring Manager Is Thinking
 
-Write 4-6 sentences of internal monologue from the perspective of the hiring manager reading this candidate's application. This should be honest, specific, and reflect the psychology of someone scanning resumes under time pressure.
+Write 4-6 sentences as the hiring manager reading this application. Be honest, specific, and reflect the mindset of someone scanning resumes under time pressure.
 
-Consider:
-- What grabs their attention in the first 7 seconds?
-- What makes them pause or feel uncertain?
-- What biases might be at play (company prestige halo, title mismatch skepticism, industry familiarity)?
-- Would this resume survive a 7-second scan, or does the candidate's real strength require deeper reading?
-- Does the career trajectory "make sense" at a glance?
+Think about:
+- What grabs their eye in the first 7 seconds?
+- What makes them pause or feel unsure?
+- What biases might play a role (brand prestige, title mismatch, industry fit)?
+- Would this resume survive a 7-second scan, or does the real strength need a deeper read?
+- Does the career path "make sense" at a glance?
 
-Be direct. If the hiring manager would think "Why is a bank person applying for this?": say that. Then explain what they'd think if they read deeper.
+Be direct. If the hiring manager would think "Why is a bank person applying for this?", say that. Then explain what they'd think if they read deeper.
 
 ### 5. Biggest Weakness + Flip Strategy
 
-Identify the single biggest concern a hiring manager would have about this candidate for this specific role. Be blunt: name it clearly.
+Name the single biggest concern a hiring manager would have about this person for this role. Be blunt: state it clearly.
 
-Then provide a concrete flip strategy:
-- How can the candidate reframe this concern in their cover letter or interview?
-- What specific evidence from their background partially addresses it?
-- What would a strong 2-sentence response sound like if asked about this in an interview?
+Then give a concrete flip plan:
+- How can the person reframe this concern in their cover letter or interview?
+- What specific proof from their background partly covers it?
+- What would a strong 2-sentence answer sound like if asked about this in an interview?
 
 ### 6. Top 3 Strongest Stories
 
-Identify the 3 most compelling experiences from the candidate's background for THIS specific role (not their 3 best accomplishments in general).
+Pick the 3 most compelling experiences from the person's background for THIS role (not their 3 best wins in general).
 
 For each story:
 - **The experience** (1-2 sentences)
-- **Why it resonates for this role** (which specific requirement it addresses)
-- **The hook** (what makes this memorable: a metric, an unexpected outcome, a scale indicator)
+- **Why it works for this role** (which specific need it covers)
+- **The hook** (what makes it stick: a metric, a surprise outcome, a scale marker)
 
-Pull from whichever document has the richer detail. If LinkedIn has more context than the resume, use that.
+Pull from whichever document has richer detail. If LinkedIn has more context than the resume, use that.
 
 ### 7. Score Improvement Roadmap
 
 This section answers: "What would it take to close the gap?"
 
-Identify the **top 3 actions** the candidate could take to meaningfully improve their fit for this type of role. These should be:
+List the **top 3 actions** the person could take to boost their fit for this type of role. These should be:
 
-- **Hard gate gaps come first.** If the screen check identified Fail or Partial verdicts, the first action(s) MUST address those gaps. Improving dimensional scores is pointless if the candidate never gets past screening.
-- **Specific and actionable.** Not "get more experience." Instead: "Build a small AI tool that solves a problem in your domain and ship it to real users."
-- **Ranked by impact on getting hired** (not just score improvement). Closing a hard gate gap matters more than moving a dimension from 55 to 70.
-- **Realistic for this candidate.** Consider their current skills, domain, and resources. A banking PM isn't going to become an ML engineer. But they can build with AI tools and publish domain-relevant thinking.
+- **Hard gate gaps come first.** If the screen check found Fail or Partial verdicts, the first actions MUST cover those gaps. Raising dimension scores is pointless if the person never gets past screening.
+- **Specific and doable.** Not "get more experience." Instead: "Build a small AI tool that solves a problem in your domain and ship it to real users."
+- **Ranked by impact on getting hired** (not just score gains). Closing a hard gate gap matters more than moving a dimension from 55 to 70.
+- **Realistic for this person.** Think about their current skills, domain, and resources. A banking PM won't become an ML engineer. But they can build with AI tools and publish domain-relevant thinking.
 - **Time-bound.** Roughly how long would each action take? Weeks, months?
 
 For each action:
 - **What to do** (1-2 sentences)
-- **Why it moves the needle** (which scoring dimension it addresses and why hiring managers care)
-- **Estimated score impact** (e.g., "Could move Dimension 1 from 25 to 50, adding ~6 points to overall score")
-- **Time investment** (rough estimate)
+- **Why it helps** (which scoring dimension it covers and why hiring managers care)
+- **Estimated score impact** (e.g., "Could move Dimension 1 from 25 to 50, adding ~6 points to total score")
+- **Time needed** (rough estimate)
 
-The goal is not to game the system. It's to close real capability gaps that the scoring surfaced. If the candidate does these things, they should genuinely be a stronger candidate, not just look like one on paper.
+The goal is not to game the system. It's to close real skill gaps that the scoring found. If the person does these things, they should truly be a stronger pick, not just look like one on paper.
 
 ### 8. Hygiene Check
 
-Cross-reference the resume and LinkedIn profile for inconsistencies. Load [references/hygiene-checks.md](references/hygiene-checks.md) for the full list of patterns to check.
+Cross-check the resume and LinkedIn for conflicts. Load [references/hygiene-checks.md](references/hygiene-checks.md) for the full list of patterns to check.
 
 Check for:
-- Date mismatches (start/end dates that don't align)
-- Title discrepancies (inflated or different titles between documents)
+- Date gaps (start and end dates that don't align)
+- Title conflicts (inflated or different titles between documents)
 - Missing roles (appears on one document but not the other)
-- Metric inconsistencies (different numbers for the same achievement)
-- Education mismatches (degrees, dates, institutions)
+- Metric conflicts (different numbers for the same result)
+- Education gaps (degrees, dates, schools)
 
-For each inconsistency found:
-- **What conflicts:** [Specific discrepancy]
-- **Risk level:** High (looks dishonest) / Medium (looks careless) / Low (minor formatting difference)
-- **Recommendation:** What to fix and why
+For each conflict found:
+- **What conflicts:** [Specific issue]
+- **Risk level:** High (looks dishonest), Medium (looks careless), or Low (minor format difference)
+- **What to fix:** What to change and why
 
-If no inconsistencies are found, explicitly state that the documents are consistent. This is a positive signal worth noting.
+If no conflicts are found, say so clearly. This is a good signal worth noting.
 
-### 9. Resume Narrative Assessment
+### 9. Resume Narrative Check
 
-This section evaluates the resume AS A DOCUMENT: separately from the candidate's actual fit.
+This section rates the resume AS A DOCUMENT, apart from the person's actual fit.
 
 Flag issues like:
-- Responsibilities listed instead of outcomes
-- Vague language where specifics exist (check LinkedIn for the specifics)
-- Missing quantification on impactful work
+- Tasks listed instead of outcomes
+- Vague language where specifics exist (check LinkedIn for the details)
+- Missing numbers on strong work
 - Burying strong experience below weaker content
 - Generic bullets that could apply to anyone
 
 Rate the resume narrative: **Strong / Adequate / Underselling**
 
-If underselling: list the 2-3 highest-impact improvements that would better represent the candidate's actual experience. Reference specific LinkedIn details that could strengthen specific resume bullets.
+If underselling: list the 2-3 highest-impact fixes that would better show the person's real experience. Point to specific LinkedIn details that could strengthen specific resume bullets.
 
-**Important:** This assessment does NOT affect the fit score. A candidate with a poorly written resume but strong LinkedIn-evidenced experience still gets a high fit score. The resume assessment is a separate improvement opportunity.
+**Important:** This rating does NOT affect the fit score. A person with a weak resume but strong LinkedIn-backed experience still gets a high fit score. The resume rating is a separate area to improve.
 
 ---
 
 ## Tone and Calibration
 
-- Be direct and specific. Never use filler phrases like "demonstrates a strong background in" or "possesses excellent skills."
-- Every claim must reference a specific piece of evidence from the candidate's documents.
-- When uncertain, say so. "LinkedIn suggests X but the resume doesn't confirm it" is more useful than a confident guess.
-- Calibrate honestly. Not every candidate is a strong fit, and saying so is more valuable than false encouragement.
-- Adapt your language to the role type. Use engineering terminology for engineering roles, product language for PM roles, etc.
+- Be direct and specific. Never use filler like "shows a strong background in" or "has excellent skills."
+- Every claim must point to a specific piece of proof from the person's documents.
+- When unsure, say so. "LinkedIn suggests X but the resume doesn't confirm it" is more useful than a confident guess.
+- Be honest in scoring. Not every person is a strong fit, and saying so is more useful than false hope.
+- Adapt your language to the role type. Use engineering terms for engineering roles, product language for PM roles, etc.

@@ -2,46 +2,46 @@
 
 ## What We Built
 
-A Claude skill that evaluates how well a candidate's background matches a job posting. The user uploads their resume and LinkedIn profile, pastes a job description, and gets a structured 9-section analysis that goes beyond keyword matching. It recognizes adjacent and transferable work (e.g., someone who did product work under a "Solutions Architect" title), separates resume writing quality from actual fit, and surfaces the candidate's strongest stories.
+A Claude skill that checks how well a person's background fits a job post. The user uploads their resume and LinkedIn profile, pastes a job post, and gets a 9-part report that goes past keyword matching. It spots work done under the wrong title (e.g., PM work by a "Solutions Architect"). It keeps resume quality apart from real fit. And it pulls out the person's best stories.
 
-Ships as a Claude skill (ZIP with SKILL.md + references folder) that works on both Claude web (Customize > Skills > Upload) and Claude Code (drop into .claude/skills/).
+Ships as a Claude skill (ZIP with SKILL.md + references folder). Works on both Claude web (Customize > Skills > Upload) and Claude Code (drop into .claude/skills/).
 
 ## Seriousness Level
 
-Launch-quality. Goal is a public GitHub repo that earns 40-50 stars. README shows product thinking (tradeoffs, decisions, learnings). Distribution via LinkedIn and PM communities.
+Launch-ready. Goal is a public GitHub repo that earns 40-50 stars. README shows product thinking (tradeoffs, choices, lessons). Shared via LinkedIn and PM groups.
 
 ## Phase 1: COMPLETE
 
 ### Core Skill
 
-1. **SKILL.md.** The analysis engine. Runs a 4-stage pipeline: Decode the JD, Extract Candidate Experience, Evaluate Fit, Generate Analysis.
-2. **Nine analysis outputs:**
+1. **SKILL.md.** The engine. Runs a 4-stage flow: Decode the JD, Extract Experience, Score Fit, Build Output.
+2. **Nine outputs:**
 
-   - **Fit Score + Headline.** 0-100 score with a one-sentence assessment, calibrated to role type
-   - **Dimension Scores.** Weighted breakdown showing exactly where the candidate is strong and where they're not
-   - **Requirements Map.** Every key requirement mapped to specific experience with confidence levels (Strong Match / Partial Match / Gap)
-   - **Adjacent Work Recognition.** Work done under different titles. PM work by a Solutions Architect, technical work in non-technical roles, leadership without the title
-   - **What the Hiring Manager Is Thinking.** Honest internal monologue from the person reading the application
-   - **Biggest Weakness + Flip Strategy.** The #1 concern a hiring manager would have, stated bluntly, plus a concrete strategy to address it
-   - **Top 3 Strongest Stories.** Most compelling experiences for this specific role
-   - **Score Improvement Roadmap.** Top 3 actions to close gaps, with estimated score impact and time investment
-   - **Hygiene Check.** LinkedIn vs resume inconsistencies (date mismatches, title differences, missing roles)
-   - **Resume Narrative Assessment.** Where the resume undersells the candidate. Scored separately from fit because a bad resume does not mean a bad candidate.
+   - **Fit Score + Headline.** 0-100 score with a one-line read, tuned to role type
+   - **Dimension Scores.** Weighted split showing where the person is strong and where they're not
+   - **Requirements Map.** Every key need mapped to real work with trust levels (Strong Match / Partial Match / Gap)
+   - **Adjacent Work Recognition.** Work done under other titles. PM work by a Solutions Architect, tech work in non-tech roles, leading without the title
+   - **What the Hiring Manager Is Thinking.** Honest inner voice of the person reading the app
+   - **Biggest Weakness + Flip Strategy.** The top worry a hiring manager would have, said plainly, plus a plan to deal with it
+   - **Top 3 Strongest Stories.** Best experiences for this exact role
+   - **Score Improvement Roadmap.** Top 3 steps to close gaps, with score impact and time needed
+   - **Hygiene Check.** LinkedIn vs resume mismatches (date gaps, title changes, missing roles)
+   - **Resume Narrative Assessment.** Where the resume sells the person short. Scored apart from fit because a bad resume does not mean a bad person.
 
-3. **Scoring infrastructure.** Transparent, auditable scoring system with per-role criteria files, weighted dimensions, gap penalties, corroboration bonuses, and manual override rules. All visible in markdown files anyone can inspect.
+3. **Scoring system.** Clear, open scoring with per-role criteria files, weighted areas, gap hits, match bonuses, and manual override rules. All visible in markdown files anyone can read.
 
-4. **4 calibrated roles:**
-   - Product Management (5 weighted dimensions)
-   - AI/ML Product Management (6 weighted dimensions)
-   - Software Engineering (5 weighted dimensions)
-   - Business Analysis / BSA (5 weighted dimensions)
+4. **4 tuned roles:**
+   - Product Management (5 weighted areas)
+   - AI/ML Product Management (6 weighted areas)
+   - Software Engineering (5 weighted areas)
+   - Business Analysis / BSA (5 weighted areas)
 
-5. **Reference file system.** Role criteria, scoring heuristics, activity framework (7 categories + title mismatch table), and hygiene checks. Loaded on demand to keep context usage efficient.
+5. **Reference file system.** Role criteria, scoring rules, activity types (7 groups + title mismatch table), and hygiene checks. Loaded on demand to keep context use low.
 
 ### Repo and README
 
-6. **README.md.** Sections: Problem, Solution, Demo, How to Use (Claude web + Claude Code), How It Works, Scoring Infrastructure, Tradeoffs and Decisions, What I Learned, Next Steps.
-7. **Repo structure:**
+6. **README.md.** Parts: Problem, Solution, Demo, How to Use (Claude web + Claude Code), How It Works, Scoring System, Tradeoffs and Choices, What I Learned, Next Steps.
+7. **Repo layout:**
 
    ```
    job-fit-analyzer/
@@ -72,36 +72,36 @@ Launch-quality. Goal is a public GitHub repo that earns 40-50 stars. README show
 
 ## Phase 2: Next
 
-- [ ] Resume customizer mode: take the fit analysis and rewrite the resume for the job without fabricating experience
-- [ ] Batch mode: analyze multiple postings and rank by fit to prioritize applications
-- [ ] Spider graph: plot the 5 key skills for the role (ideal vs candidate) for instant visual gap analysis
-- [ ] More calibrated roles: Design, Marketing, Data Science, Operations
+- [ ] Resume fixer mode: take the fit report and rewrite the resume for the job without making things up
+- [ ] Batch mode: check many posts and rank by fit to pick where to apply
+- [ ] Spider graph: plot the 5 key skills for the role (ideal vs actual) for a quick visual gap view
+- [ ] More tuned roles: Design, Marketing, Data Science, Operations
 - [ ] Claude Code `/job-fit` slash command
 
 ## Parking Lot: Ideas, No Timeline
 
-- Score tracker: track fit scores across applications over time
+- Score tracker: track fit scores across apps over time
 - Web UI / Streamlit: for users who don't use Claude at all
-- Comparison mode: side-by-side analysis of 2-3 similar roles
+- Compare mode: side-by-side view of 2-3 similar roles
 
 ## Tech Approach
 
-No code. The entire product is a well-engineered Claude skill (SKILL.md + reference files). The value is in the prompt architecture and the scoring infrastructure.
+No code. The whole product is a well-built Claude skill (SKILL.md + reference files). The value is in the prompt design and the scoring system.
 
 The skill:
 
-- Reads uploaded resume PDF and LinkedIn PDF
-- Accepts a pasted job description
-- Runs a 4-stage analysis: (1) Decode the JD to identify role type, seniority, and core requirements, (2) Extract candidate experience using activity-based decomposition across both documents, (3) Score each dimension from role-specific criteria with weighted averages, gap penalties, and corroboration bonuses, (4) Generate all 9 output sections
-- Routes to role-specific scoring criteria based on the JD. A PM analysis loads PM dimensions. An engineering analysis loads engineering dimensions. No cross-contamination.
+- Reads an uploaded resume PDF and LinkedIn PDF
+- Takes a pasted job post
+- Runs a 4-stage flow: (1) Decode the JD to find role type, seniority, and core needs, (2) Pull out work history using activity-based sorting across both docs, (3) Score each area from role-based criteria with weighted math, gap hits, and match bonuses, (4) Build all 9 output parts
+- Routes to role-based scoring criteria from the JD. A PM run loads PM areas. An eng run loads eng areas. No mixing.
 
-Distribution: Users download the skill folder as a ZIP, upload to Claude web (Customize > Skills) or drop into Claude Code skills directory.
+How users get it: Download the skill folder as a ZIP. Upload to Claude web (Customize > Skills) or drop into Claude Code skills folder.
 
 ## Resolved Decisions
 
-1. **Repo name:** `job-fit-analyzer`. Descriptive, discoverable.
-2. **License:** MIT. Maximum adoption.
-3. **Fit score:** Yes, 0-100 with narrative. People love numbers, but the narrative prevents it from being reductive.
+1. **Repo name:** `job-fit-analyzer`. Clear and easy to find.
+2. **License:** MIT. Most open for adoption.
+3. **Fit score:** Yes, 0-100 with story. People love numbers, but the story stops it from being too simple.
 
 ---
 

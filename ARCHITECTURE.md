@@ -168,12 +168,12 @@ job-fit-analyzer/
 
 ## Key Design Decisions
 
-**Three-level loading.** SKILL.md metadata (name + description) loads at session start. SKILL.md body loads when the skill triggers. Reference files load only when needed during analysis. This keeps context usage efficient.
+**Three-level loading.** SKILL.md info (name + blurb) loads at session start. SKILL.md body loads when the skill runs. Reference files load only when needed. This keeps context use low.
 
-**Role routing.** Stage 1 identifies the role type, then loads only the relevant criteria file. A PM analysis never loads engineering criteria. This keeps each analysis focused and prevents cross-contamination between role evaluation patterns.
+**Role routing.** Stage 1 finds the role type, then loads only the right criteria file. A PM run never loads eng criteria. This keeps each run focused and stops role rules from mixing.
 
-**Scoring separation.** The scoring heuristics (common rules) and role criteria (specific dimensions) are in separate files. Common rules change rarely. Role criteria evolve as we get more calibration data. Keeping them apart means you can update PM scoring without touching the shared rules.
+**Scoring split.** The scoring rules (shared) and role criteria (per-role) live in their own files. Shared rules rarely change. Role criteria grow as we get more test data. Keeping them apart means you can update PM scoring and not touch the shared rules.
 
-**Resume quality is decoupled from fit.** The fit score comes from Stage 4 (dimension scoring). The resume narrative assessment is a separate output in Stage 5. A bad resume doesn't lower the fit score. This was a deliberate product decision to evaluate the person, not just their document.
+**Resume quality is kept apart from fit.** The fit score comes from Stage 4 (area scoring). The resume review is a stand-alone output in Stage 5. A bad resume does not lower the fit score. This was a clear product choice: judge the person, not just their doc.
 
-**Two-layer evaluation.** Screen check runs before dimensional scoring, mirroring how hiring actually works. Hard gate requirements (specific tools, platforms, domains, certifications) are evaluated as Pass/Partial/Fail. The screen verdict tells candidates whether they'd survive initial filtering. The fit score then shows how they'd perform if screened in. This prevents the tool from giving false hope by producing a high fit score for candidates who'd be auto-rejected on a specific missing requirement. No consumer job-matching tool does this - they all produce single composite scores that can mask critical gaps.
+**Two-layer check.** The screen check runs before area scoring. This mirrors how hiring really works. Hard gate needs (tools, platforms, domains, certs) get a Pass/Partial/Fail grade. The screen verdict tells people if they would clear first-pass filters. The fit score then shows how they would do if screened in. This stops the tool from giving false hope with a high fit score when a person would be auto-cut on a missing need. No other job-match tool does this. They all make one blended score that can hide key gaps.
