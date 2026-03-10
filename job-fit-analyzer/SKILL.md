@@ -1,11 +1,11 @@
 ---
 name: job-fit-analyzer
-description: Analyze job fit when a user uploads their resume and LinkedIn profile alongside a job description, or asks how well they match a role, or wants to know their strengths and gaps for a specific position, or asks "should I apply for this job." Triggers on any request involving candidate-to-job evaluation, career fit assessment, or application decision-making. This is NOT a keyword matcher — it evaluates actual work performed regardless of job titles.
+description: Analyze job fit when a user uploads their resume and LinkedIn profile alongside a job description, or asks how well they match a role, or wants to know their strengths and gaps for a specific position, or asks "should I apply for this job." Triggers on any request involving candidate-to-job evaluation, career fit assessment, or application decision-making. This is NOT a keyword matcher. It evaluates actual work performed regardless of job titles.
 ---
 
 # Job Fit Analyzer
 
-Evaluate how well a candidate's actual experience matches a job — by analyzing the work they've done, not the titles they've held.
+Evaluate how well a candidate's actual experience matches a job. Analyzes the work they've done, not the titles they've held.
 
 ## What This Skill Does NOT Do
 
@@ -18,9 +18,9 @@ Evaluate how well a candidate's actual experience matches a job — by analyzing
 
 Before starting analysis, you MUST have all three:
 
-1. **Resume** (PDF or text) — the candidate's current resume
-2. **LinkedIn profile** (PDF or text) — the candidate's LinkedIn export
-3. **Job description** (pasted text or PDF) — the target role
+1. **Resume** (PDF or text): the candidate's current resume
+2. **LinkedIn profile** (PDF or text): the candidate's LinkedIn export
+3. **Job description** (pasted text or PDF): the target role
 
 If any input is missing, ask for it before proceeding. Do not attempt a partial analysis.
 
@@ -33,34 +33,40 @@ Work through these stages in order. Do not skip stages or combine them.
 Before looking at the candidate, understand what this role actually needs.
 
 1. **Identify the role type** (engineering, product, design, marketing, sales, ops, data, etc.) and seniority level
-2. **Extract the 5-7 core requirements** — not every bullet point, just the ones that would actually determine a hire/no-hire decision. Distinguish between stated requirements and implied ones (e.g., "fast-paced environment" implies comfort with ambiguity and rapid prioritization)
-3. **Identify the archetype** — what kind of person would the hiring manager be thrilled to hire? What's their ideal background? What company or role would they be coming from?
-4. **Determine evaluation criteria for this role type.** Load [references/role-evaluation.md](references/role-evaluation.md) for guidance on how evaluation criteria differ across engineering, PM, design, marketing, sales, ops, and data roles. Apply the relevant criteria.
-5. **Note the company context** — stage (startup/growth/enterprise), industry, and any signals about team structure or culture
+2. **Extract the 5-7 core requirements**: not every bullet point, just the ones that would actually determine a hire/no-hire decision. Distinguish between stated requirements and implied ones (e.g., "fast-paced environment" implies comfort with ambiguity and rapid prioritization)
+3. **Identify the archetype**: what kind of person would the hiring manager be thrilled to hire? What's their ideal background? What company or role would they be coming from?
+4. **Determine which role criteria to use.** Load [references/roles.md](references/roles.md) to identify the matching role. Then load the corresponding file from `references/role-criteria/` for scoring dimensions and weights. Also load [references/scoring-heuristics.md](references/scoring-heuristics.md) for the common scoring rules that apply across all roles. If the role doesn't match any supported role, use common heuristics only and flag that calibration is less precise.
+5. **Note the company context**: stage (startup/growth/enterprise), industry, and any signals about team structure or culture
 
 ### Stage 2: Extract Candidate Experience
 
 Read both the resume and LinkedIn profile thoroughly. Your goal is to understand what this person has actually DONE, not what their titles say.
 
-1. **Map their career trajectory** — roles, companies, durations, progression pattern
+1. **Map their career trajectory**: roles, companies, durations, progression pattern
 2. **Decompose each role into work activities.** Load [references/activity-framework.md](references/activity-framework.md) for the activity decomposition framework. Categorize what they did into: Strategic, Discovery, Definition, Execution, Growth, Technical, and Communication work.
 3. **Identify where title and work diverge.** Use the title-to-work mismatch patterns in the activity framework reference. A "Solutions Architect" who prioritized backlogs and defined requirements was doing product management. A "Business Analyst" who built data pipelines was doing data engineering. Surface these.
 4. **Corroborate across both documents.** LinkedIn often has richer context (descriptions, recommendations, activity). Resume may be sparse. Use LinkedIn to fill gaps in understanding, and note where the two documents tell different stories.
-5. **Separate the person from their resume.** A poorly written resume does not mean a poor candidate. If the resume is vague but LinkedIn reveals strong, specific experience — the person is stronger than their resume suggests. Flag this.
+5. **Separate the person from their resume.** A poorly written resume does not mean a poor candidate. If the resume is vague but LinkedIn reveals strong, specific experience: the person is stronger than their resume suggests. Flag this.
 
 ### Stage 3: Evaluate Fit
 
 Now map the candidate to the job. This is activity-level matching, not title matching.
 
-For each of the 5-7 core requirements from Stage 1:
+**Step 3a: Score each dimension from the role criteria file.** Each supported role has 5-6 weighted dimensions. Score every dimension using the level descriptions in the role criteria file (Strong/Solid/Partial/Weak/Gap with numeric ranges).
 
-1. **Search for direct evidence** — did the candidate do this exact work?
-2. **Search for adjacent evidence** — did they do work that develops the same underlying capability? (e.g., running A/B tests in marketing = experimentation capability relevant to a growth PM role)
-3. **Assess depth** — did they own this work or contribute to it? How recently? For how long?
-4. **Assign a confidence level:**
-   - **Strong Match** — direct, recent evidence from their career with demonstrated outcomes
-   - **Partial Match** — adjacent evidence, or direct evidence that's older/less deep
-   - **Gap** — no meaningful evidence found in either document
+**Step 3b: Calculate the overall score.** Follow the calculation method in `scoring-heuristics.md`:
+1. Score each dimension (0-100)
+2. Apply the weights from the role criteria
+3. Calculate the weighted average
+4. Apply the critical gap penalty (if any dimension is below 20)
+5. Apply the corroboration bonus (if 3+ dimensions have evidence in both documents)
+6. Override only if the math doesn't match reality, and explain why
+
+**Step 3c: Map to requirements.** For each of the 5-7 core requirements from Stage 1:
+1. Search for direct evidence in the candidate's background
+2. Search for adjacent evidence (work that develops the same capability under a different name)
+3. Assess depth: did they own it or contribute? How recently? For how long?
+4. Assign confidence: Strong Match / Partial Match / Gap
 
 ### Stage 4: Generate the Analysis
 
@@ -101,7 +107,7 @@ For each instance:
 - **What their title said:** [Official title]
 - **What they actually did:** [The work activity, described in the target role's language]
 - **Why it matters for this role:** [How this experience directly maps to a core requirement]
-- **Strength of evidence:** [How confident are you in this translation — strong, moderate, or speculative]
+- **Strength of evidence:** [How confident are you in this translation: strong, moderate, or speculative]
 
 If the candidate's career is a straight line to this role with matching titles, say so and skip this section.
 
@@ -116,11 +122,11 @@ Consider:
 - Would this resume survive a 7-second scan, or does the candidate's real strength require deeper reading?
 - Does the career trajectory "make sense" at a glance?
 
-Be direct. If the hiring manager would think "Why is a bank person applying for this?" — say that. Then explain what they'd think if they read deeper.
+Be direct. If the hiring manager would think "Why is a bank person applying for this?": say that. Then explain what they'd think if they read deeper.
 
 ### 5. Biggest Weakness + Flip Strategy
 
-Identify the single biggest concern a hiring manager would have about this candidate for this specific role. Be blunt — name it clearly.
+Identify the single biggest concern a hiring manager would have about this candidate for this specific role. Be blunt: name it clearly.
 
 Then provide a concrete flip strategy:
 - How can the candidate reframe this concern in their cover letter or interview?
@@ -134,7 +140,7 @@ Identify the 3 most compelling experiences from the candidate's background for T
 For each story:
 - **The experience** (1-2 sentences)
 - **Why it resonates for this role** (which specific requirement it addresses)
-- **The hook** (what makes this memorable — a metric, an unexpected outcome, a scale indicator)
+- **The hook** (what makes this memorable: a metric, an unexpected outcome, a scale indicator)
 
 Pull from whichever document has the richer detail. If LinkedIn has more context than the resume, use that.
 
@@ -158,7 +164,7 @@ If no inconsistencies are found, explicitly state that the documents are consist
 
 ### 8. Resume Narrative Assessment
 
-This section evaluates the resume AS A DOCUMENT — separately from the candidate's actual fit.
+This section evaluates the resume AS A DOCUMENT: separately from the candidate's actual fit.
 
 Flag issues like:
 - Responsibilities listed instead of outcomes
