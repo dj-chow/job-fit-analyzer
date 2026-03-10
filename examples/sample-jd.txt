@@ -1,7 +1,7 @@
-Senior Product Manager, AI Platform — Fintech Startup (Series B)
+Senior Product Manager, AI Platform - Fintech Startup (Series B)
 
 About the Role:
-We're looking for a Senior Product Manager to own our AI-powered risk assessment platform. You'll work at the intersection of machine learning, regulatory compliance, and user experience — building products that help financial institutions make faster, more accurate lending decisions.
+We're looking for a Senior Product Manager to own our AI-powered risk assessment platform. You'll work at the intersection of machine learning, regulatory compliance, and user experience - building products that help financial institutions make faster, more accurate lending decisions.
 
 Responsibilities:
 - Own the product roadmap for our AI risk assessment platform, balancing customer needs, regulatory requirements, and technical feasibility

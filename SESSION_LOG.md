@@ -1,8 +1,8 @@
 # Session Log
-*Reverse chronological — newest entries at top.*
+*Reverse chronological - newest entries at top.*
 
 ---
-## [2026-03-10 23:00] — Build Job Fit Analyzer from scratch
+## [2026-03-10 23:00] - Build Job Fit Analyzer from scratch
 
 **Project:** job-fit-analyzer
 **Duration:** Extended (50+ exchanges)
@@ -46,22 +46,22 @@
 
 ### Artifacts
 - Created `C:\Users\Dheer\OneDrive\Dheeraj\Learning\portfolio\job-fit-analyzer\` (entire repo)
-- Created `job-fit-analyzer/SKILL.md` — main analysis engine, 4 stages, 9 output sections
-- Created `job-fit-analyzer/references/roles.md` — 4 launch roles with routing logic
-- Created `job-fit-analyzer/references/scoring-heuristics.md` — common scoring rules
-- Created `job-fit-analyzer/references/role-criteria/product-management.md` — 5 weighted dimensions
-- Created `job-fit-analyzer/references/role-criteria/ai-product-management.md` — 6 weighted dimensions
-- Created `job-fit-analyzer/references/role-criteria/engineering.md` — 5 weighted dimensions
-- Created `job-fit-analyzer/references/role-criteria/business-analysis.md` — 5 weighted dimensions
-- Created `job-fit-analyzer/references/activity-framework.md` — 7 activity categories + 14 title-mismatch patterns
-- Created `job-fit-analyzer/references/hygiene-checks.md` — LinkedIn vs resume check patterns
-- Created `examples/sample-jd.txt` — AI PM role at fintech startup
-- Created `examples/sample-output.md` — full 9-section analysis, score 44/100
-- Created `README.md` — project overview, setup for web + Code, tradeoffs, learnings
-- Created `ARCHITECTURE.md` — 3 Mermaid diagrams (component flow, dependencies, scoring calc)
-- Created `CLAUDE.md` — writing style rules (no em dashes, human tone, ARI 4-5)
-- Created `LICENSE` — MIT
-- Created `plan.md` — original project plan with parking lot
+- Created `job-fit-analyzer/SKILL.md` - main analysis engine, 4 stages, 9 output sections
+- Created `job-fit-analyzer/references/roles.md` - 4 launch roles with routing logic
+- Created `job-fit-analyzer/references/scoring-heuristics.md` - common scoring rules
+- Created `job-fit-analyzer/references/role-criteria/product-management.md` - 5 weighted dimensions
+- Created `job-fit-analyzer/references/role-criteria/ai-product-management.md` - 6 weighted dimensions
+- Created `job-fit-analyzer/references/role-criteria/engineering.md` - 5 weighted dimensions
+- Created `job-fit-analyzer/references/role-criteria/business-analysis.md` - 5 weighted dimensions
+- Created `job-fit-analyzer/references/activity-framework.md` - 7 activity categories + 14 title-mismatch patterns
+- Created `job-fit-analyzer/references/hygiene-checks.md` - LinkedIn vs resume check patterns
+- Created `examples/sample-jd.txt` - AI PM role at fintech startup
+- Created `examples/sample-output.md` - full 9-section analysis, score 44/100
+- Created `README.md` - project overview, setup for web + Code, tradeoffs, learnings
+- Created `ARCHITECTURE.md` - 3 Mermaid diagrams (component flow, dependencies, scoring calc)
+- Created `CLAUDE.md` - writing style rules (no em dashes, human tone, ARI 4-5)
+- Created `LICENSE` - MIT
+- Created `plan.md` - original project plan with parking lot
 
 ### Context
 Built the entire job-fit-analyzer repo in one session. The skill is feature-complete with 9 output sections, transparent scoring for 4 roles, and architecture documentation. It has NOT been pushed to GitHub yet and has NOT been tested with a real skill upload to Claude web. The next session should start by pushing to GitHub, then doing a real test with Dheeraj's actual resume and LinkedIn against a real job posting. The sample output uses a profile similar to Dheeraj's, so the first real test should validate whether the scoring feels right. Research from 5 background agents (recruiter frameworks, Claude skill specs, top GitHub skills, adjacent skills mapping, hiring manager psychology) plus 1 agent reading 7 AI PM market articles informed the design.

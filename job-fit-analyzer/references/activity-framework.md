@@ -78,8 +78,8 @@ Use this table to recognize when a candidate's title doesn't reflect their actua
 
 When evaluating whether experience is "adjacent," consider these five dimensions:
 
-1. **Skill adjacency** — Do the roles share 60%+ of the same core skills? (e.g., Project Manager and Program Manager share execution, stakeholder management, planning)
-2. **Activity adjacency** — Are they performing the same work activities in different contexts? (e.g., Marketing Manager running experiments and Growth PM running experiments)
-3. **Domain adjacency** — Different role in the same domain? (e.g., Data Analyst to Data Engineer — same data domain, different depth)
-4. **Altitude adjacency** — Same skills at a different scope? (e.g., team lead to department director — same leadership skills, broader scope)
-5. **Perspective adjacency** — Same problem space, different vantage point? (e.g., Engineering Manager and Technical PM both answer "what should we build" from different angles)
+1. **Skill adjacency.** Do the roles share 60%+ of the same core skills? (e.g., Project Manager and Program Manager share execution, stakeholder management, planning)
+2. **Activity adjacency.** Are they performing the same work activities in different contexts? (e.g., Marketing Manager running experiments and Growth PM running experiments)
+3. **Domain adjacency.** Different role in the same domain? (e.g., Data Analyst to Data Engineer - same data domain, different depth)
+4. **Altitude adjacency.** Same skills at a different scope? (e.g., team lead to department director - same leadership skills, broader scope)
+5. **Perspective adjacency.** Same problem space, different vantage point? (e.g., Engineering Manager and Technical PM both answer "what should we build" from different angles)
