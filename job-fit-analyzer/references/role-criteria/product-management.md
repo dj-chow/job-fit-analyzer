@@ -71,7 +71,7 @@ The same dimensions apply at all levels, but the BAR shifts:
 | Senior PM | Ownership at product line level. Strategy-led. Influences leadership and cross-org. |
 | Director+ | Ownership at portfolio level. Sets direction for multiple teams. Organizational influence. |
 
-When scoring, check whether the candidate's demonstrated level matches the role's seniority. A strong mid-level PM applying for a senior role might score 65-75 even with great evidence, because the scope gap matters.
+When scoring, check whether the candidate's shown level matches the role's seniority. A strong mid-level PM applying for a senior role might score 65-75 even with great evidence, because the scope gap matters.
 
 ## Common Scoring Traps
 

@@ -1,4 +1,4 @@
-# Job Fit Analyzer -- Project Plan
+# Job Fit Analyzer: Project Plan
 
 ## What We Built
 
@@ -10,25 +10,25 @@ Ships as a Claude skill (ZIP with SKILL.md + references folder) that works on bo
 
 Launch-quality. Goal is a public GitHub repo that earns 40-50 stars. README shows product thinking (tradeoffs, decisions, learnings). Distribution via LinkedIn and PM communities.
 
-## Phase 1 -- COMPLETE
+## Phase 1: COMPLETE
 
 ### Core Skill
 
-1. **SKILL.md** -- The analysis engine. Runs a 4-stage pipeline: Decode the JD, Extract Candidate Experience, Evaluate Fit, Generate Analysis.
+1. **SKILL.md.** The analysis engine. Runs a 4-stage pipeline: Decode the JD, Extract Candidate Experience, Evaluate Fit, Generate Analysis.
 2. **Nine analysis outputs:**
 
-   - **Fit Score + Headline** -- 0-100 score with a one-sentence assessment, calibrated to role type
-   - **Dimension Scores** -- Weighted breakdown showing exactly where the candidate is strong and where they're not
-   - **Requirements Map** -- Every key requirement mapped to specific experience with confidence levels (Strong Match / Partial Match / Gap)
-   - **Adjacent Work Recognition** -- Work done under different titles. PM work by a Solutions Architect, technical work in non-technical roles, leadership without the title
-   - **What the Hiring Manager Is Thinking** -- Honest internal monologue from the person reading the application
-   - **Biggest Weakness + Flip Strategy** -- The #1 concern a hiring manager would have, stated bluntly, plus a concrete strategy to address it
-   - **Top 3 Strongest Stories** -- Most compelling experiences for this specific role
-   - **Score Improvement Roadmap** -- Top 3 actions to close gaps, with estimated score impact and time investment
-   - **Hygiene Check** -- LinkedIn vs resume inconsistencies (date mismatches, title differences, missing roles)
-   - **Resume Narrative Assessment** -- Where the resume undersells the candidate. Scored separately from fit because a bad resume does not mean a bad candidate.
+   - **Fit Score + Headline.** 0-100 score with a one-sentence assessment, calibrated to role type
+   - **Dimension Scores.** Weighted breakdown showing exactly where the candidate is strong and where they're not
+   - **Requirements Map.** Every key requirement mapped to specific experience with confidence levels (Strong Match / Partial Match / Gap)
+   - **Adjacent Work Recognition.** Work done under different titles. PM work by a Solutions Architect, technical work in non-technical roles, leadership without the title
+   - **What the Hiring Manager Is Thinking.** Honest internal monologue from the person reading the application
+   - **Biggest Weakness + Flip Strategy.** The #1 concern a hiring manager would have, stated bluntly, plus a concrete strategy to address it
+   - **Top 3 Strongest Stories.** Most compelling experiences for this specific role
+   - **Score Improvement Roadmap.** Top 3 actions to close gaps, with estimated score impact and time investment
+   - **Hygiene Check.** LinkedIn vs resume inconsistencies (date mismatches, title differences, missing roles)
+   - **Resume Narrative Assessment.** Where the resume undersells the candidate. Scored separately from fit because a bad resume does not mean a bad candidate.
 
-3. **Scoring infrastructure** -- Transparent, auditable scoring system with per-role criteria files, weighted dimensions, gap penalties, corroboration bonuses, and manual override rules. All visible in markdown files anyone can inspect.
+3. **Scoring infrastructure.** Transparent, auditable scoring system with per-role criteria files, weighted dimensions, gap penalties, corroboration bonuses, and manual override rules. All visible in markdown files anyone can inspect.
 
 4. **4 calibrated roles:**
    - Product Management (5 weighted dimensions)
@@ -36,11 +36,11 @@ Launch-quality. Goal is a public GitHub repo that earns 40-50 stars. README show
    - Software Engineering (5 weighted dimensions)
    - Business Analysis / BSA (5 weighted dimensions)
 
-5. **Reference file system** -- Role criteria, scoring heuristics, activity framework (7 categories + title mismatch table), and hygiene checks. Loaded on demand to keep context usage efficient.
+5. **Reference file system.** Role criteria, scoring heuristics, activity framework (7 categories + title mismatch table), and hygiene checks. Loaded on demand to keep context usage efficient.
 
 ### Repo and README
 
-6. **README.md** -- Sections: Problem, Solution, Demo, How to Use (Claude web + Claude Code), How It Works, Scoring Infrastructure, Tradeoffs and Decisions, What I Learned, Next Steps.
+6. **README.md.** Sections: Problem, Solution, Demo, How to Use (Claude web + Claude Code), How It Works, Scoring Infrastructure, Tradeoffs and Decisions, What I Learned, Next Steps.
 7. **Repo structure:**
 
    ```
@@ -68,9 +68,9 @@ Launch-quality. Goal is a public GitHub repo that earns 40-50 stars. README show
    └── .gitignore
    ```
 
-8. **Shipped to GitHub** -- github.com/dj-chow/job-fit-analyzer, clean commit history.
+8. **Shipped to GitHub.** github.com/dj-chow/job-fit-analyzer, clean commit history.
 
-## Phase 2 -- Next
+## Phase 2: Next
 
 - [ ] Resume customizer mode: take the fit analysis and rewrite the resume for the job without fabricating experience
 - [ ] Batch mode: analyze multiple postings and rank by fit to prioritize applications
@@ -78,7 +78,7 @@ Launch-quality. Goal is a public GitHub repo that earns 40-50 stars. README show
 - [ ] More calibrated roles: Design, Marketing, Data Science, Operations
 - [ ] Claude Code `/job-fit` slash command
 
-## Parking Lot -- Ideas, No Timeline
+## Parking Lot: Ideas, No Timeline
 
 - Score tracker: track fit scores across applications over time
 - Web UI / Streamlit: for users who don't use Claude at all

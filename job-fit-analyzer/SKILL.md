@@ -124,7 +124,7 @@ When the screen verdict is "Likely Filtered Out," the headline must acknowledge 
 When the screen verdict is "Borderline," acknowledge the risk: "Screening is a coin flip - the [specific hard gate] gap could go either way."
 
 Calibration guide:
-- **85-100:** Strong fit. Candidate could credibly perform this role based on demonstrated experience.
+- **85-100:** Strong fit. Candidate could credibly perform this role based on proven experience.
 - **70-84:** Solid fit with manageable gaps. A good candidate who would need to close 1-2 specific areas.
 - **50-69:** Partial fit. Real strengths in some areas but significant gaps in others.
 - **30-49:** Stretch candidate. Adjacent experience exists but major capability gaps.

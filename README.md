@@ -33,6 +33,20 @@ The skill launches with **4 calibrated roles** (Product Management, AI/ML PM, So
 | **Hygiene Check** | LinkedIn vs resume inconsistencies that could raise red flags |
 | **Resume Narrative Assessment** | Where your resume undersells you (scored separately from fit) |
 
+## What Makes This Different
+
+1. **Two-layer evaluation (Screen Check + Fit Score).** Most matching tools give you one number. A candidate missing a critical requirement can still score 75% because other skills compensate. This tool separates "Will you pass the screen?" from "How well do you fit?" The same two layers real hiring uses. No consumer matching tool does this.
+
+2. **Activity-based matching, not keyword matching.** The tool breaks each role into 7 work activity categories (Strategic, Discovery, Definition, Execution, Growth, Technical, Communication). A Solutions Architect who ran backlogs and aligned stakeholders was doing PM work. Keyword matchers miss this entirely.
+
+3. **Transparent, auditable scoring.** Every dimension, weight, and calculation lives in a readable markdown file. You can see exactly how the score was calculated and why. Most AI tools are black boxes. This one shows its work. Disagree with a weight? You can find it and propose a change.
+
+4. **Resume quality scored separately from fit.** A bad resume doesn't mean a bad candidate. Many strong professionals undersell their experience. The fit score evaluates the person. The resume narrative assessment evaluates the document. They're independent.
+
+5. **Adjacent work recognition.** The tool finds where candidates did role-relevant work under mismatched titles. 14 common title-to-work mismatch patterns are documented. This catches transferable experience that keyword matching systematically misses.
+
+6. **"What the Hiring Manager Is Thinking."** Not generic feedback. An honest internal monologue from the person reading your application. Names the exact moment of hesitation, the bias that triggers it, and what would change their mind.
+
 ## Demo
 
 Here's a snippet from a [full sample analysis](examples/sample-output.md). A banking PM applying for an AI PM role at a fintech startup:
@@ -158,6 +172,7 @@ Most AI tools are black boxes. You get a number but no idea how it was calculate
 
 - [Claude](https://claude.ai) via the Claude skill system
 - Research from O*NET occupational frameworks, recruiter evaluation studies, hiring manager psychology literature, and AI PM market analysis
+- The two-layer evaluation model is informed by I/O psychology research on multi-hurdle selection models and recruiter screening behavior studies
 
 ---
 

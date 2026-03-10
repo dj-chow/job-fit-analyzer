@@ -83,7 +83,7 @@ It does NOT measure:
 - How well the resume is written (that's a separate assessment)
 - Whether the candidate would accept the role
 - Culture fit or soft skills beyond what's evidenced in work history
-- Potential beyond demonstrated capability
+- Potential beyond proven capability
 - Whether the candidate will pass the initial screen (that's Layer 1)
 
 ## Score Calibration

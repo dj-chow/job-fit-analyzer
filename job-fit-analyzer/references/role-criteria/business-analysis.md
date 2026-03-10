@@ -34,7 +34,7 @@ Can they work the room? BAs live at the intersection of business and technology.
 
 | Level | What It Looks Like |
 |---|---|
-| Strong (80-100) | Facilitates working sessions with business and technical stakeholders. Translates between business language and technical language fluently. Manages conflicting priorities. Gets sign-off on difficult decisions. |
+| Strong (80-100) | Runs working sessions with business and technical stakeholders. Translates between business language and technical language fluently. Manages conflicting priorities. Gets sign-off on difficult decisions. |
 | Solid (60-79) | Communicates well with both business and technical teams. Can run requirements sessions. Handles standard stakeholder dynamics. |
 | Partial (40-59) | Comfortable with one side (business or technical) but weaker with the other. Or works primarily with a single stakeholder group. |
 | Weak (20-39) | Mostly takes direction rather than facilitating. Limited multi-stakeholder experience. |
@@ -90,4 +90,4 @@ If these signals are present, the candidate may score well against PM criteria t
 - Don't assume all BAs are the same. A BSA at a bank doing regulatory reporting lives in a completely different world than a BA at a startup writing user stories.
 - "Requirements gathering" sounds passive. Look for evidence of requirements ENGINEERING, which means analysis, challenge, and synthesis, not just transcription.
 - SQL skills are a differentiator. A BA who can independently validate data is far more effective than one who files tickets with the data team for every question.
-- Certifications (CBAP, CCBA) are neutral signals. They don't hurt but they don't predict performance. Weight demonstrated work over credentials.
+- Certifications (CBAP, CCBA) are neutral signals. They don't hurt but they don't predict performance. Weight proven work over credentials.
