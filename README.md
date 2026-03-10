@@ -13,7 +13,7 @@ If you've ever thought "I've done this work, just not under that title," this to
 
 ## The Solution
 
-Upload your resume and LinkedIn profile. Paste a job description. Get an 8-section analysis that evaluates your real work history against what the role needs.
+Upload your resume and LinkedIn profile. Paste a job description. Get an 9-section analysis that evaluates your real work history against what the role needs.
 
 The skill launches with **4 calibrated roles** (Product Management, AI/ML PM, Software Engineering, Business Analysis) with transparent scoring criteria. Each role has weighted dimensions, level descriptions, and calibration notes. You can see exactly how the score is calculated.
 
@@ -28,6 +28,7 @@ The skill launches with **4 calibrated roles** (Product Management, AI/ML PM, So
 | **What the Hiring Manager Is Thinking** | Honest internal monologue from the person reading your application |
 | **Biggest Weakness + Flip Strategy** | The #1 concern a hiring manager would have, plus how to address it |
 | **Top 3 Strongest Stories** | Your most compelling experiences for this specific role |
+| **Score Improvement Roadmap** | Top 3 actions to close gaps, with estimated score impact and time investment |
 | **Hygiene Check** | LinkedIn vs resume inconsistencies that could raise red flags |
 | **Resume Narrative Assessment** | Where your resume undersells you (scored separately from fit) |
 

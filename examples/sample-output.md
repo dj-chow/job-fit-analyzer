@@ -115,7 +115,37 @@ Why it resonates: The only direct AI/ML touchpoint. While early-career, it shows
 
 The hook: Weak. This story needs more specific detail to land. The candidate should reconstruct what they remember about the NLP product decisions and data challenges.
 
-## 7. Hygiene Check
+## 7. Score Improvement Roadmap
+
+Here's what would move the needle for this candidate applying to AI PM roles.
+
+**Action 1: Build and ship an AI-powered tool in your domain.**
+Build something small that uses AI to solve a real problem you understand. For example: a Claude-powered tool that reads regulatory documents and extracts reporting requirements automatically. Or an AI assistant that helps risk analysts validate data outputs. Ship it publicly. Get even a handful of real users.
+
+Why it moves the needle: This directly addresses Dimension 1 (Shipped AI/ML Product), currently the weakest score at 25. Going from "has never built AI" to "has built and shipped a working AI tool" changes the conversation completely. Hiring managers at OpenAI, Google, and Meta consistently say shipped product is the strongest signal, even small ones.
+
+Estimated score impact: Could move Dimension 1 from 25 to 50-55, adding roughly 6-8 points to overall score.
+Time investment: 2-4 weeks of focused building.
+
+**Action 2: Write and publish an eval framework for AI in risk assessment.**
+Write a public document (blog post, GitHub repo, or LinkedIn article) that defines how you'd evaluate an AI-powered credit risk or regulatory reporting product. What does "good" look like? What are the failure modes? How do you measure quality when the output is probabilistic? Include specific metrics and thresholds.
+
+Why it moves the needle: Eval-writing is replacing PRDs as the core AI PM artifact. Jake Brill at OpenAI said PMs write the best evals because they understand how the product should work. A banking PM who publishes domain-specific AI evals is showing they think in the new paradigm. This addresses Dimension 3 (Eval and Quality Framework Thinking), currently at 45.
+
+Estimated score impact: Could move Dimension 3 from 45 to 65-70, adding roughly 3-4 points to overall score.
+Time investment: 1-2 weeks.
+
+**Action 3: Build your AI technical vocabulary through daily use and public writing.**
+Use AI tools daily in your actual work. Then write about it. Not "I took an AI course" but "I used Claude to automate our quarterly risk report compilation and here's what I learned about prompt engineering, output validation, and where AI breaks down in regulated contexts."
+
+Why it moves the needle: Addresses Dimension 2 (Technical Fluency for AI), currently at 35. Hiring managers assess whether candidates actually use AI in their workflow. Public writing about the experience shows technical fluency and critical thinking about AI limitations, not just hype.
+
+Estimated score impact: Could move Dimension 2 from 35 to 50-55, adding roughly 3-4 points to overall score.
+Time investment: Ongoing. 2-3 LinkedIn posts or articles over 4-6 weeks.
+
+**Combined impact:** If the candidate executes all three, the overall score could move from 44 to roughly 56-60. That shifts them from "stretch candidate" to "partial fit with real strengths." Paired with the regulatory domain expertise and strong stakeholder skills, that might be enough to get a phone screen at the right company.
+
+## 8. Hygiene Check
 
 | What | Resume Says | LinkedIn Says | Risk | Action |
 |---|---|---|---|---|
@@ -123,7 +153,7 @@ The hook: Weak. This story needs more specific detail to land. The candidate sho
 
 The resume and LinkedIn tell the same story at different levels of detail. LinkedIn has richer descriptions. Resume is more concise. No factual conflicts.
 
-## 8. Resume Narrative Assessment
+## 9. Resume Narrative Assessment
 
 **Rating: Underselling**
 

@@ -144,7 +144,26 @@ For each story:
 
 Pull from whichever document has the richer detail. If LinkedIn has more context than the resume, use that.
 
-### 7. Hygiene Check
+### 7. Score Improvement Roadmap
+
+This section answers: "What would it take to close the gap?"
+
+Identify the **top 3 actions** the candidate could take to meaningfully improve their fit for this type of role. These should be:
+
+- **Specific and actionable.** Not "get more experience." Instead: "Build a small AI tool that solves a problem in your domain and ship it to real users."
+- **Ranked by impact on the score.** Which dimension would each action move, and by roughly how much?
+- **Realistic for this candidate.** Consider their current skills, domain, and resources. A banking PM isn't going to become an ML engineer. But they can build with AI tools and publish domain-relevant thinking.
+- **Time-bound.** Roughly how long would each action take? Weeks, months?
+
+For each action:
+- **What to do** (1-2 sentences)
+- **Why it moves the needle** (which scoring dimension it addresses and why hiring managers care)
+- **Estimated score impact** (e.g., "Could move Dimension 1 from 25 to 50, adding ~6 points to overall score")
+- **Time investment** (rough estimate)
+
+The goal is not to game the system. It's to close real capability gaps that the scoring surfaced. If the candidate does these things, they should genuinely be a stronger candidate, not just look like one on paper.
+
+### 8. Hygiene Check
 
 Cross-reference the resume and LinkedIn profile for inconsistencies. Load [references/hygiene-checks.md](references/hygiene-checks.md) for the full list of patterns to check.
 
@@ -162,7 +181,7 @@ For each inconsistency found:
 
 If no inconsistencies are found, explicitly state that the documents are consistent. This is a positive signal worth noting.
 
-### 8. Resume Narrative Assessment
+### 9. Resume Narrative Assessment
 
 This section evaluates the resume AS A DOCUMENT: separately from the candidate's actual fit.
 
