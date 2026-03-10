@@ -1,96 +1,140 @@
 # Sample Analysis Output
 
-> This is an example of what the Job Fit Analyzer produces. The candidate is a PM with 9+ years in banking (risk and regulatory reporting) applying for an AI PM role at a fintech startup.
+> Example output from Job Fit Analyzer. The candidate is a PM with 9+ years in banking (risk and regulatory reporting) applying for a Senior AI PM role at a Series B fintech startup.
 
 ---
 
-## 1\. Fit Score and Headline
+## Dimension Scores
 
-**Score: 72/100**
+Using AI/ML Product Management criteria from `role-criteria/ai-product-management.md`:
 
-Strong regulatory and risk domain expertise with demonstrated product ownership, but limited direct AI/ML product experience and no startup experience — a candidate who knows the problem space deeply but would need to adapt to the pace and technical depth this role demands.
+| Dimension | Weight | Score | Level | Key Evidence |
+|---|---|---|---|---|
+| Shipped AI/ML Product Experience | 25% | 25 | Weak | Worked with vendor ML analytics platforms. Contributed to an NLP assessment product 10+ years ago. No evidence of owning an AI product end-to-end. |
+| Technical Fluency for AI | 20% | 35 | Weak | Worked with data teams and understood system dependencies. No evidence of discussing model constraints, evals, or training approaches. |
+| Eval and Quality Framework Thinking | 15% | 45 | Partial | Built self-serve dashboards with operational metrics. Has experimentation mindset from reporting optimization. But no experience with probabilistic quality thresholds or model evaluation. |
+| Product Ownership and Shipping | 15% | 82 | Strong | Owned risk reporting platform as Product Owner. Shipped self-serve dashboards, drove adoption, measured outcomes. Clear end-to-end ownership. |
+| Breadth of Domain Experience | 15% | 50 | Partial | Deep in one domain (banking risk). Some breadth from edtech (UpGrad) and assessment products (Aspiring Minds). But career is concentrated in financial services. |
+| Stakeholder Alignment | 10% | 90 | Strong | Every role shows cross-functional alignment. Resolved design decisions without authority across risk, tech, ops, and governance teams. This is the candidate's superpower. |
 
-## 2\. Requirements Map
+**Weighted average:** 46.3
+**Critical gap penalty:** -10 (Shipped AI/ML Product scores below 20 threshold after rounding)
+**Corroboration bonus:** +3 (4 dimensions have evidence in both documents)
+**Override:** +5 (Regulatory domain expertise is specifically called for in this JD. This rare combination of risk domain knowledge + product skills is genuinely valuable for an AI risk assessment platform.)
 
-|Requirement|Evidence From Candidate|Confidence|Source|
-|-|-|-|-|
-|5+ years product management in fintech/financial services|9+ years at BMO across Product Owner, Solutions Architect, and Delivery Lead roles. Formal PM title for 2.5 years; PM-equivalent work for 6+ years|Strong Match|Both|
-|Experience with ML/AI products or data platforms|Worked on risk analytics platforms with vendor ML systems. Contributed to an NLP-based assessment product at a previous company. No evidence of directly defining ML model requirements or evaluation criteria|Partial Match|LinkedIn|
-|Understanding of regulatory environments|Deep expertise — 6+ years inside FRTB regulatory reporting. Decomposed complex regulatory requirements into implementable use cases. Proposed solutions balancing compliance, feasibility, and usability|Strong Match|Both|
-|Work with technical teams (ML engineers, data scientists)|Partnered with engineering and data teams extensively. Led cross-team working sessions with business, data, and engineering stakeholders. No specific mention of ML engineers or data scientists|Partial Match|Both|
-|Define and track product metrics (B2B)|Reduced manual reporting requests by ~60% via self-serve dashboards. Improved agile maturity from 3.6 to 4.1. Metrics exist but are operational, not product-level (no retention, adoption curves, or model performance metrics)|Partial Match|Resume|
-|Stakeholder management across technical and non-technical|Strongest signal in the entire profile. Every role demonstrates cross-functional alignment: risk, technology, operations, governance, vendor teams. Resolved key design decisions without direct authority|Strong Match|Both|
-|User research with domain users|Gathered requirements from business stakeholders. Designed dashboards based on user workflow needs. No mention of formal user research methods (interviews, usability testing, surveys)|Partial Match|Resume|
+---
 
-## 3\. Adjacent Work Recognition
+## 1. Fit Score and Headline
 
-**"Solutions Architect" = Product Manager (3 years)**
-The candidate's Solutions Architect role at BMO (2021-2024) was product management work under a different title. Evidence: investigated recurring issues by mapping end-to-end workflows, led cross-team working sessions to align stakeholders on problem definitions, decomposed regulatory requirements into implementable use cases with acceptance criteria, and proposed solution approaches balancing multiple constraints. This is classic PM work — problem framing, stakeholder alignment, requirements definition, and solution scoping.
-**Why it matters:** This extends their effective PM experience from 2.5 years to 5.5+ years, meeting the "5+ years PM" requirement.
-**Strength of evidence:** Strong — multiple specific examples across both documents.
+**Score: 44/100**
 
-**"Business Analyst" = Data Product Manager (2 years)**
-The BA role at BMO (2017-2019) involved analyzing source data and database structures using SQL, partnering with engineers to define reporting logic, and ensuring dashboards reflected business decision needs rather than raw system outputs. This is data product thinking — translating raw data into decision-support tools.
-**Why it matters:** Maps directly to the "data-intensive platforms" requirement and shows the candidate can bridge data and business needs.
-**Strength of evidence:** Moderate — the work is relevant but described in BA language rather than product language.
+A strong product operator who knows regulated financial systems inside out. But the AI gap is real. This candidate has never shipped an AI product, never written evals, and never worked directly with ML engineers. For a role that puts "AI platform" in the title, that's a hard gap to overcome without a very compelling interview.
 
-**"Product Consultant" at Aspiring Minds = Early AI/ML Exposure**
-Conducted statistical analysis linking assessment performance with job outcomes and led proof-of-concept studies for enterprise clients. This was early-career work with NLP-based assessment products.
-**Why it matters:** Provides a thread connecting the candidate to ML/AI product work, even if it's from earlier in their career.
-**Strength of evidence:** Moderate — the work existed but was 10+ years ago and the candidate was in a consulting capacity, not a product ownership role.
+## 2. Requirements Map
 
-## 4\. What the Hiring Manager Is Thinking
+| Requirement | Evidence From Candidate | Confidence | Source |
+|---|---|---|---|
+| 5+ years PM in fintech/financial services | 9+ years at BMO. Formal PM title for 2.5 years, but PM-equivalent work for 6+ years when you count the Solutions Architect and Delivery Lead roles. | Strong Match | Both |
+| Experience with ML/AI products or data platforms | Worked alongside vendor ML analytics platforms in the FRTB program. Contributed to an NLP assessment product at Aspiring Minds. But this was exposure, not ownership. Never defined model requirements or evaluation criteria. | Gap | LinkedIn |
+| Understanding of regulatory environments | This is where the candidate shines. 6+ years inside FRTB regulatory reporting. Broke down complex regulatory requirements into specs that dev teams could build against. Balanced compliance, feasibility, and usability in solution design. | Strong Match | Both |
+| Work with ML engineers and data scientists | Partnered with engineering and data teams across multiple programs. Led working sessions with business, data, and engineering stakeholders. But no specific mention of ML engineers, researchers, or data scientists. | Partial Match | Both |
+| Define and track product metrics (B2B) | Cut manual reporting requests by about 60% with self-serve dashboards. Raised agile maturity from 3.6 to 4.1. These are real metrics but they're operational, not product-level. No retention curves, adoption funnels, or model performance metrics. | Partial Match | Resume |
+| Stakeholder management across technical and non-technical | Strongest signal in the profile. Every role shows this. Risk teams, technology teams, operations, governance, vendors. Resolved key design decisions without positional authority. | Strong Match | Both |
+| User research with risk analysts | Gathered requirements from business stakeholders. Designed dashboards based on workflow needs. But no evidence of formal user research methods like interviews, usability testing, or surveys. | Partial Match | Resume |
 
-"Nine years at one bank — interesting. Loyal, or stuck? The regulatory experience is exactly what we need, nobody else in the pipeline will know FRTB like this person. But I need someone who can work with our ML team day-to-day, and I'm not seeing that. The Product Owner stint looks solid — 60% reduction in manual requests is a real outcome. But Solutions Architect? I almost skipped past this resume because the title didn't scream PM. If I'm being honest, I'm worried about the startup speed adjustment — BMO moves in quarters, we move in weeks. Still, this person clearly knows how to navigate complex stakeholder environments and that's half the battle in regulated AI. Putting them in the 'maybe' pile — I want to phone screen and see if they can talk about ML tradeoffs with any fluency."
+## 3. Adjacent Work Recognition
 
-## 5\. Biggest Weakness + Flip Strategy
+**"Solutions Architect" at BMO (2021-2024) = Product Manager**
+Title says architect. Work says PM. This person investigated recurring issues by mapping end-to-end workflows across systems. They led cross-team sessions to align business, data, and engineering stakeholders on problem definitions. They broke down regulatory requirements into use cases with acceptance criteria. They proposed solution approaches that balanced multiple constraints.
 
-**The weakness:** No direct experience building or managing AI/ML products end-to-end. The role requires partnering with ML engineers on model requirements, evaluation criteria, and deployment — and the candidate's exposure to ML is indirect (vendor analytics products, an NLP product from 10+ years ago).
+That's problem framing, stakeholder alignment, requirements definition, and solution scoping. Classic PM work.
+
+This matters because it extends their effective PM experience from 2.5 years to 5.5+ years. Without recognizing this, they don't meet the "5+ years PM" bar. With it, they clear it comfortably.
+
+Evidence strength: Strong. Multiple specific examples across both documents.
+
+**"Business Analyst" at BMO (2017-2019) = Data Product Thinking**
+Analyzed source data and database structures using SQL. Partnered with engineers to define reporting logic. Made sure dashboards reflected business decision needs rather than raw system outputs.
+
+That last part is the key. Translating raw data into tools people actually use to make decisions is data product thinking.
+
+This matters for the "data-intensive platforms" requirement. Shows the candidate can bridge data and business needs, even if they did it from a BA chair.
+
+Evidence strength: Moderate. The work is relevant but described in BA language.
+
+**Product Consultant at Aspiring Minds = Early AI Exposure**
+Conducted statistical analysis linking assessment performance with job outcomes. Led proof-of-concept studies for enterprise clients on NLP-based assessment products.
+
+This provides a thin thread connecting the candidate to ML product work. But it was 10+ years ago and in a consulting capacity. Not ownership.
+
+Evidence strength: Weak. Too old and too peripheral to carry much weight.
+
+## 4. What the Hiring Manager Is Thinking
+
+"Nine years at one bank. Okay, loyal or stuck? Let me scan. Product Owner, Solutions Architect, Delivery Lead. None of these scream AI PM. The regulatory angle is interesting though. We need someone who gets compliance and we've been struggling to find that.
+
+But wait. I need this person talking to our ML team about model evaluation and deployment strategies. I'm not seeing any of that. The NLP thing from Aspiring Minds is too old to count.
+
+The 60% reduction in manual reporting is a solid number. Shows they can ship and measure. But our world is different. We ship models, not dashboards.
+
+Putting this in the 'no' pile for now. Unless our recruiter tells me this person can actually talk about AI with fluency. Then maybe a phone screen. But I'd need to hear it myself."
+
+## 5. Biggest Weakness + Flip Strategy
+
+**The weakness:** Zero shipped AI products. The role title literally says "AI Platform" and the candidate has never owned an AI product, written model evals, or worked directly with ML engineers. In a market where "almost all AI PM jobs ask for prior hands-on AI PM experience," this is a dealbreaker-level gap.
 
 **Flip strategy:**
-The candidate should reframe this as a strength: "I've spent 9 years on the receiving end of ML model outputs in risk — I know what good model governance looks like from the regulatory side, which is exactly the gap most AI PMs have. They understand the model but not the compliance framework. I understand both sides."
+Don't pretend the gap doesn't exist. Own it and reframe it.
 
-**Interview response:** "At BMO, I worked with vendor ML analytics platforms inside our FRTB reporting program. I saw firsthand how model risk management, regulatory requirements, and product usability collide. Most AI PMs come from the technical side and learn compliance on the job. I come from the compliance and product side — I already know what regulators look for in AI governance, and I've translated those requirements into product specs that engineering teams can build against."
+The angle: "Most AI PMs come from the technical side and learn compliance on the job. I come from the other direction. I've spent 9 years watching ML model outputs flow through risk reporting systems. I know what happens when model governance fails, because I've seen the regulatory consequences. Your AI risk assessment platform needs someone who understands both sides of that equation."
 
-## 6\. Top 3 Strongest Stories
+**Interview response:** "I haven't built an AI product from scratch, and I won't pretend otherwise. But I've spent the last 6 years working inside a regulatory reporting program where vendor ML analytics platforms were core to our workflow. I've seen how model risk management, regulatory requirements, and product usability collide in practice. That domain knowledge is the hard part. The AI product skills I can build. The regulatory intuition took 9 years."
+
+To make this flip work, the candidate should also show they're actively building AI fluency. A side project using Claude or a small AI tool they've built would go a long way.
+
+## 6. Top 3 Strongest Stories
 
 **1. Self-serve risk reporting platform (Product Owner, BMO)**
-Reduced manual executive reporting requests by ~60% by redesigning fragmented risk governance workflows into self-serve dashboards. Defined the MVP backlog, aligned risk/ops/technology teams, and drove adoption through onboarding and change management.
-**Why it resonates:** Directly demonstrates end-to-end product ownership in a regulated financial environment — the exact context this role operates in. The 60% metric is concrete and memorable.
+Cut manual executive reporting requests by about 60%. Redesigned fragmented risk governance workflows into self-serve dashboards. Defined the MVP backlog, aligned three teams (risk, ops, technology), and drove adoption through onboarding and change management.
 
-**2. Cross-functional alignment on FRTB regulatory program (Solutions Architect, BMO)**
-Resolved key design decisions across risk, technology, and operations teams within a multi-year regulatory program — without direct authority. Converted undocumented institutional knowledge into implementable product requirements.
-**Why it resonates:** The "without direct authority" detail signals PM-grade influence skills. The regulatory context maps perfectly to the compliance requirements of this role.
+Why it resonates: End-to-end product ownership in a regulated financial environment. Same context as the target role. The 60% number sticks.
 
-**3. NLP assessment product supporting multi-million-dollar contracts (UpGrad/Aspiring Minds)**
-Worked on an NLP-based assessment product and led proof-of-concept studies for enterprise clients, contributing to early client adoption.
-**Why it resonates:** The only direct AI/ML product touchpoint in the candidate's background. While early-career, it demonstrates comfort with ML-powered products and B2B enterprise sales contexts.
+The hook: "Replaced a process where analysts manually compiled reports for executives, with a platform where executives could get answers themselves."
 
-## 7\. Hygiene Check
+**2. Cross-functional alignment on FRTB program (Solutions Architect, BMO)**
+Resolved key design decisions across risk, technology, and operations teams within a multi-year regulatory program. Did this without direct authority over any of those teams. Turned undocumented institutional knowledge into specs that dev teams could actually build against.
 
-|Discrepancy|Details|Risk Level|Recommendation|
-|-|-|-|-|
-|No inconsistencies found|Titles, dates, and company information are consistent across resume and LinkedIn|N/A|Clean check — this is a positive signal|
+Why it resonates: The "without direct authority" detail is pure PM signal. The regulatory context maps directly to this role's compliance requirements.
 
-The candidate's resume and LinkedIn tell a consistent story. The LinkedIn profile provides richer descriptions of each role, while the resume is more concise. No factual conflicts detected.
+The hook: "Nobody owned the full picture. I made myself the person who did."
 
-## 8\. Resume Narrative Assessment
+**3. NLP assessment product (Aspiring Minds)**
+Worked on an NLP-based assessment product supporting multi-million-dollar enterprise contracts. Led proof-of-concept studies linking assessment performance to job outcomes.
+
+Why it resonates: The only direct AI/ML touchpoint. While early-career, it shows the candidate has been in the room where ML products get built and sold.
+
+The hook: Weak. This story needs more specific detail to land. The candidate should reconstruct what they remember about the NLP product decisions and data challenges.
+
+## 7. Hygiene Check
+
+| What | Resume Says | LinkedIn Says | Risk | Action |
+|---|---|---|---|---|
+| No inconsistencies found | Titles, dates, and company info are consistent across both documents | Same | N/A | Clean check. This is a positive signal. |
+
+The resume and LinkedIn tell the same story at different levels of detail. LinkedIn has richer descriptions. Resume is more concise. No factual conflicts.
+
+## 8. Resume Narrative Assessment
 
 **Rating: Underselling**
 
-The resume is competent but significantly underrepresents the candidate's actual experience and impact. Key issues:
+The resume is okay but it misrepresents the candidate's actual strength. Three specific problems:
 
-1. **The Solutions Architect role buries PM work.** The resume describes it as investigation and analysis work. LinkedIn reveals it was full product-scope work: stakeholder alignment, requirements decomposition, solution design, and implementation coordination. This role should be positioned as de facto product management.
-2. **Missing metrics in key roles.** The Product Owner role has the 60% reduction metric, but the Solutions Architect role (3 years) and Delivery Lead role have no quantified outcomes. LinkedIn mentions "raising agile maturity from 3.6 to 4.1" — this should be on the resume.
-3. **Early career AI/ML experience is invisible.** The Aspiring Minds consulting work with NLP products and statistical analysis is barely described. For an AI PM role, this needs more emphasis and specific detail about the ML product work.
+1. **The Solutions Architect role reads like an analyst role.** The resume describes investigation and analysis work. But LinkedIn reveals full product-scope work: stakeholder alignment, requirements decomposition, solution design, and implementation coordination. Reframe this role in PM language. The current framing is costing the candidate 3 years of product experience that hiring managers can't see.
 
-**Top improvements:**
+2. **Key metrics are missing.** The Product Owner role has the 60% number, which is good. But the Solutions Architect role (3 years) and Delivery Lead role have almost no quantified outcomes. LinkedIn mentions "raising agile maturity from 3.6 to 4.1." That should be on the resume.
 
-* Reframe the Solutions Architect role as product work, using PM language (roadmap, requirements, prioritization, cross-functional alignment)
-* Add the agile maturity metric (3.6 to 4.1) to the Delivery Lead role
-* Expand the Aspiring Minds section to emphasize the NLP/ML product work and enterprise client outcomes
+3. **The AI connection is invisible.** The Aspiring Minds work with NLP products and statistical analysis is barely described. For an AI PM role, this needs way more detail. What was the NLP model doing? What were the enterprise client decisions based on? What did the candidate learn about ML products? Every detail here counts.
 
 ---
 
-*Generated by* [*Job Fit Analyzer*](https://github.com/dj-chow/job-fit-analyzer) *— a Claude skill that evaluates job fit by analyzing work activities, not just titles and keywords.*
-
+*Generated by [Job Fit Analyzer](https://github.com/dj-chow/job-fit-analyzer). A Claude skill that evaluates job fit by analyzing work activities, not just titles and keywords.*
