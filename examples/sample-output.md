@@ -1,6 +1,23 @@
 # Sample Analysis Output
 
-> Example output from Job Fit Analyzer. The candidate is a PM with 9+ years in banking (risk and regulatory reporting) applying for a Senior AI PM role at a Series B fintech startup.
+> Example output from Job Fit Analyzer. Uses a two-layer evaluation model: a screen check for hard gate requirements, then a weighted fit score across role-specific dimensions. The candidate is a PM with 9+ years in banking (risk and regulatory reporting) applying for a Senior AI PM role at a Series B fintech startup. This output has 10 sections.
+
+---
+
+## 0. Screen Check
+
+Before scoring dimensions, the tool checks whether the candidate clears the hard gate requirements for this role. These are the non-negotiable qualifications that a recruiter or hiring manager would screen for in 30 seconds.
+
+| Hard Gate | What the JD Asks For | Candidate Evidence | Verdict |
+|---|---|---|---|
+| ML/AI product experience | "Experience working with ML/AI products or data-intensive platforms" | Worked with vendor ML analytics platforms at BMO. Contributed to an NLP assessment product at Aspiring Minds, but that was 10+ years ago and in a consulting capacity. This is exposure, not ownership. No evidence of defining model requirements, running evals, or owning an AI product. | **Fail** |
+| Work with ML engineers and data scientists | "Demonstrated ability to work with technical teams (ML engineers, data scientists)" | Partnered with engineering and data teams across multiple programs. Led working sessions with business, data, and engineering stakeholders. But no specific mention of working with ML engineers, ML researchers, or data scientists. The technical collaboration is real, but the ML-specific flavor is missing. | **Partial** |
+
+**Screen verdict: Borderline**
+
+One Fail and one Partial. The ML/AI experience gate is a clear miss, though there is thin adjacent evidence (vendor ML platforms, early-career NLP work). The technical collaboration gate is close but lacks ML-specific proof points. A recruiter following the JD strictly would likely pass on this candidate. But a hiring manager who values regulatory domain expertise might still take a phone screen to test AI fluency in person.
+
+This screening risk carries forward into the fit score below.
 
 ---
 
@@ -27,8 +44,9 @@ Using AI/ML Product Management criteria from `role-criteria/ai-product-managemen
 ## 1. Fit Score and Headline
 
 **Score: 44/100**
+**Screen: Borderline** (1 Fail, 1 Partial on hard gates)
 
-A strong product operator who knows regulated financial systems inside out. But the AI gap is real. This candidate has never shipped an AI product, never written evals, and never worked directly with ML engineers. For a role that puts "AI platform" in the title, that's a hard gap to overcome without a very compelling interview.
+A strong product operator who knows regulated financial systems inside out, but flagged at the screening stage for lack of direct AI/ML experience. The candidate has never shipped an AI product, never written evals, and never worked directly with ML engineers. For a role that puts "AI platform" in the title, that's a hard gap to overcome without a very compelling interview. The screening risk means this application likely gets filtered out before a human even reads the full profile.
 
 ## 2. Requirements Map
 

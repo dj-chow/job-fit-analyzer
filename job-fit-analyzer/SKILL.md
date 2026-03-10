@@ -34,9 +34,10 @@ Before looking at the candidate, understand what this role actually needs.
 
 1. **Identify the role type** (engineering, product, design, marketing, sales, ops, data, etc.) and seniority level
 2. **Extract the 5-7 core requirements**: not every bullet point, just the ones that would actually determine a hire/no-hire decision. Distinguish between stated requirements and implied ones (e.g., "fast-paced environment" implies comfort with ambiguity and rapid prioritization)
-3. **Identify the archetype**: what kind of person would the hiring manager be thrilled to hire? What's their ideal background? What company or role would they be coming from?
-4. **Determine which role criteria to use.** Load [references/roles.md](references/roles.md) to identify the matching role. Then load the corresponding file from `references/role-criteria/` for scoring dimensions and weights. Also load [references/scoring-heuristics.md](references/scoring-heuristics.md) for the common scoring rules that apply across all roles. If the role doesn't match any supported role, use common heuristics only and flag that calibration is less precise.
-5. **Note the company context**: stage (startup/growth/enterprise), industry, and any signals about team structure or culture
+3. **Classify each requirement as a Hard Gate or Soft Signal.** Load [references/scoring-heuristics.md](references/scoring-heuristics.md) and follow the classification rules in the "Layer 1: Screen Check" section. Hard gates are specific, verifiable, non-negotiable requirements (specific tools, platforms, domains, certifications). Soft signals are general competencies assessed on a spectrum. Most JDs have 1-3 hard gates and 5-10 soft signals.
+4. **Identify the archetype**: what kind of person would the hiring manager be thrilled to hire? What's their ideal background? What company or role would they be coming from?
+5. **Determine which role criteria to use.** Load [references/roles.md](references/roles.md) to identify the matching role. Then load the corresponding file from `references/role-criteria/` for scoring dimensions and weights. If the role doesn't match any supported role, use common heuristics only and flag that calibration is less precise.
+6. **Note the company context**: stage (startup/growth/enterprise), industry, and any signals about team structure or culture
 
 ### Stage 2: Extract Candidate Experience
 
@@ -48,13 +49,29 @@ Read both the resume and LinkedIn profile thoroughly. Your goal is to understand
 4. **Corroborate across both documents.** LinkedIn often has richer context (descriptions, recommendations, activity). Resume may be sparse. Use LinkedIn to fill gaps in understanding, and note where the two documents tell different stories.
 5. **Separate the person from their resume.** A poorly written resume does not mean a poor candidate. If the resume is vague but LinkedIn reveals strong, specific experience: the person is stronger than their resume suggests. Flag this.
 
-### Stage 3: Evaluate Fit
+### Stage 3: Screen Check (Hard Gate Evaluation)
+
+Before scoring dimensions, check whether this candidate would survive initial screening. This uses the hard gate requirements identified in Stage 1.
+
+For each hard gate requirement:
+1. Search the candidate's resume and LinkedIn for direct evidence
+2. If no direct evidence, search for adjacent experience
+3. Classify as **Pass** (direct evidence), **Partial** (adjacent or outdated), or **Fail** (no evidence)
+
+Then produce a screen verdict following the rules in `scoring-heuristics.md`:
+- **Likely Passes Screen**: All hard gates Pass, or at most 1 Partial
+- **Borderline**: 1 Fail with strong adjacent evidence, or 2+ Partials
+- **Likely Filtered Out**: 2+ Fails, or 1 Fail on a role-defining requirement
+
+Be strict. "Worked with data teams" does not pass a "Python required" gate. Adjacent experience is Partial, not Pass. If the JD has no hard gates (all general competencies), note this and skip to Stage 4.
+
+### Stage 4: Evaluate Fit
 
 Now map the candidate to the job. This is activity-level matching, not title matching.
 
-**Step 3a: Score each dimension from the role criteria file.** Each supported role has 5-6 weighted dimensions. Score every dimension using the level descriptions in the role criteria file (Strong/Solid/Partial/Weak/Gap with numeric ranges).
+**Step 4a: Score each dimension from the role criteria file.** Each supported role has 5-6 weighted dimensions. Score every dimension using the level descriptions in the role criteria file (Strong/Solid/Partial/Weak/Gap with numeric ranges).
 
-**Step 3b: Calculate the overall score.** Follow the calculation method in `scoring-heuristics.md`:
+**Step 4b: Calculate the overall score.** Follow the calculation method in `scoring-heuristics.md`:
 1. Score each dimension (0-100)
 2. Apply the weights from the role criteria
 3. Calculate the weighted average
@@ -62,13 +79,13 @@ Now map the candidate to the job. This is activity-level matching, not title mat
 5. Apply the corroboration bonus (if 3+ dimensions have evidence in both documents)
 6. Override only if the math doesn't match reality, and explain why
 
-**Step 3c: Map to requirements.** For each of the 5-7 core requirements from Stage 1:
+**Step 4c: Map to requirements.** For each of the 5-7 core requirements from Stage 1:
 1. Search for direct evidence in the candidate's background
 2. Search for adjacent evidence (work that develops the same capability under a different name)
 3. Assess depth: did they own it or contribute? How recently? For how long?
 4. Assign confidence: Strong Match / Partial Match / Gap
 
-### Stage 4: Generate the Analysis
+### Stage 5: Generate the Analysis
 
 Produce ALL of the following sections. Do not skip any.
 
@@ -76,11 +93,35 @@ Produce ALL of the following sections. Do not skip any.
 
 ## Output Format
 
+### 0. Screen Check
+
+Present the hard gate evaluation from Stage 3. This section comes FIRST, before any scoring.
+
+**Format:**
+
+| # | Hard Gate Requirement | Evidence | Verdict |
+|---|---|---|---|
+| 1 | [Specific requirement from JD] | [What was found in candidate's docs, or "No evidence"] | Pass / Partial / Fail |
+
+**Screen Verdict: [Likely Passes Screen / Borderline / Likely Filtered Out]**
+
+If the verdict is "Likely Filtered Out," add a direct statement: "This candidate would probably be screened out before reaching a detailed evaluation. The fit score below shows how they'd perform IF they got past screening, but the hard gate gaps are the primary barrier."
+
+If the verdict is "Borderline," add: "This candidate is on the edge. Whether they pass screening depends on the recruiter, the applicant pool, and how well the application frames adjacent experience."
+
+If "Likely Passes Screen," add: "No hard gate barriers identified. This candidate should reach the evaluation stage."
+
+If the JD has no hard gates, state: "No hard gate requirements identified in this JD. All requirements are general competencies assessed on a spectrum. Screen check is not applicable - moving directly to fit scoring."
+
 ### 1. Fit Score and Headline
 
-**Score: X/100**
+**Score: X/100** (or **Fit Score (if screened in): X/100** when screen verdict is "Likely Filtered Out")
 
 Provide a single score with a one-sentence headline summarizing the fit. The score reflects the candidate's actual capability match, not their resume presentation quality.
+
+When the screen verdict is "Likely Filtered Out," the headline must acknowledge the screening barrier first, then the conditional fit. Example: "Would likely be filtered out due to missing decision engine experience. If screened in, this is a solid PM with transferable skills."
+
+When the screen verdict is "Borderline," acknowledge the risk: "Screening is a coin flip - the [specific hard gate] gap could go either way."
 
 Calibration guide:
 - **85-100:** Strong fit. Candidate could credibly perform this role based on demonstrated experience.
@@ -150,8 +191,9 @@ This section answers: "What would it take to close the gap?"
 
 Identify the **top 3 actions** the candidate could take to meaningfully improve their fit for this type of role. These should be:
 
+- **Hard gate gaps come first.** If the screen check identified Fail or Partial verdicts, the first action(s) MUST address those gaps. Improving dimensional scores is pointless if the candidate never gets past screening.
 - **Specific and actionable.** Not "get more experience." Instead: "Build a small AI tool that solves a problem in your domain and ship it to real users."
-- **Ranked by impact on the score.** Which dimension would each action move, and by roughly how much?
+- **Ranked by impact on getting hired** (not just score improvement). Closing a hard gate gap matters more than moving a dimension from 55 to 70.
 - **Realistic for this candidate.** Consider their current skills, domain, and resources. A banking PM isn't going to become an ML engineer. But they can build with AI tools and publish domain-relevant thinking.
 - **Time-bound.** Roughly how long would each action take? Weeks, months?
 

@@ -13,9 +13,10 @@ flowchart TD
     subgraph STAGE1["Stage 1: Decode the JD"]
         S1A["Identify role type + seniority"]
         S1B["Extract 5-7 core requirements"]
-        S1C["Identify ideal candidate archetype"]
-        S1D["Load role criteria"]
-        S1E["Note company context"]
+        S1C["Classify requirements as Hard Gate vs Soft Signal"]
+        S1D["Identify ideal candidate archetype"]
+        S1E["Load role criteria"]
+        S1F["Note company context"]
     end
 
     subgraph STAGE2["Stage 2: Extract Candidate Experience"]
@@ -26,14 +27,21 @@ flowchart TD
         S2E["Separate person from resume quality"]
     end
 
-    subgraph STAGE3["Stage 3: Evaluate Fit"]
-        S3A["Score each dimension from role criteria"]
-        S3B["Calculate weighted average"]
-        S3C["Apply gap penalty + corroboration bonus"]
-        S3D["Map requirements to evidence"]
+    subgraph STAGE3["Stage 3: Screen Check"]
+        S3A["Evaluate each hard gate requirement"]
+        S3B["Produce Pass / Partial / Fail per gate"]
+        S3C["Generate screen verdict:<br/>Likely Passes Screen /<br/>Borderline / Likely Filtered Out"]
     end
 
-    subgraph STAGE4["Stage 4: Generate Analysis"]
+    subgraph STAGE4["Stage 4: Evaluate Fit"]
+        S4A["Score each dimension from role criteria"]
+        S4B["Calculate weighted average"]
+        S4C["Apply gap penalty + corroboration bonus"]
+        S4D["Map requirements to evidence"]
+    end
+
+    subgraph STAGE5["Stage 5: Generate Analysis"]
+        O0["0. Screen Check"]
         O1["1. Fit Score + Headline"]
         O2["2. Requirements Map"]
         O3["3. Adjacent Work Recognition"]
@@ -52,9 +60,12 @@ flowchart TD
     STAGE1 --> STAGE3
     STAGE2 --> STAGE3
     STAGE3 --> STAGE4
+    STAGE4 --> STAGE5
+    STAGE3 -->|"Screen verdict<br/>affects output framing"| STAGE5
 
-    S1A --> S1D
-    S3A --> S3B --> S3C --> S3D
+    S1A --> S1E
+    S3A --> S3B --> S3C
+    S4A --> S4B --> S4C --> S4D
 ```
 
 ## Reference File Dependencies
@@ -81,8 +92,9 @@ flowchart LR
     ROLES -->|"Route to criteria"| CRITERIA
     SKILL -->|"Stage 1: Scoring rules"| HEURISTICS
     SKILL -->|"Stage 2: Decompose work"| ACTIVITY
-    SKILL -->|"Stage 3: Score dimensions"| CRITERIA
-    SKILL -->|"Stage 3: Calculate score"| HEURISTICS
+    SKILL -->|"Stage 3: Screen check rules"| HEURISTICS
+    SKILL -->|"Stage 4: Score dimensions"| CRITERIA
+    SKILL -->|"Stage 4: Calculate score"| HEURISTICS
     SKILL -->|"Section 8: Check hygiene"| HYGIENE
 ```
 
@@ -90,27 +102,41 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    DIM["Score each dimension<br/>(0-100 per dimension)"]
-    WEIGHT["Apply role-specific weights<br/>(from role-criteria file)"]
-    AVG["Calculate weighted average"]
-    GAP{"Any dimension<br/>below 20?"}
-    PENALTY1["-10 points<br/>(one critical gap)"]
-    PENALTY2["-20 points<br/>(two+ critical gaps)"]
-    CORR{"3+ dimensions<br/>corroborated in<br/>both documents?"}
-    BONUS["+3 points"]
-    OVERRIDE{"Does math<br/>match reality?"}
-    ADJUST["Manual override<br/>(must explain why)"]
-    FINAL["Final Score (0-100)"]
+    subgraph SCREEN["Screen Check Path"]
+        HG["Extract hard gates from JD"]
+        CHECK["Check each gate against<br/>candidate evidence"]
+        VERDICT["Produce screen verdict:<br/>Likely Passes Screen /<br/>Borderline / Likely Filtered Out"]
+        HG --> CHECK --> VERDICT
+    end
 
-    DIM --> WEIGHT --> AVG
-    AVG --> GAP
-    GAP -->|"Yes, one"| PENALTY1 --> CORR
-    GAP -->|"Yes, two+"| PENALTY2 --> CORR
-    GAP -->|"No"| CORR
-    CORR -->|"Yes"| BONUS --> OVERRIDE
-    CORR -->|"No"| OVERRIDE
-    OVERRIDE -->|"No, adjust"| ADJUST --> FINAL
-    OVERRIDE -->|"Yes"| FINAL
+    subgraph DIMENSIONAL["Dimensional Scoring Path"]
+        DIM["Score each dimension<br/>(0-100 per dimension)"]
+        WEIGHT["Apply role-specific weights<br/>(from role-criteria file)"]
+        AVG["Calculate weighted average"]
+        GAP{"Any dimension<br/>below 20?"}
+        PENALTY1["-10 points<br/>(one critical gap)"]
+        PENALTY2["-20 points<br/>(two+ critical gaps)"]
+        CORR{"3+ dimensions<br/>corroborated in<br/>both documents?"}
+        BONUS["+3 points"]
+        OVERRIDE{"Does math<br/>match reality?"}
+        ADJUST["Manual override<br/>(must explain why)"]
+        FITSCORE["Fit Score (0-100)"]
+
+        DIM --> WEIGHT --> AVG
+        AVG --> GAP
+        GAP -->|"Yes, one"| PENALTY1 --> CORR
+        GAP -->|"Yes, two+"| PENALTY2 --> CORR
+        GAP -->|"No"| CORR
+        CORR -->|"Yes"| BONUS --> OVERRIDE
+        CORR -->|"No"| OVERRIDE
+        OVERRIDE -->|"No, adjust"| ADJUST --> FITSCORE
+        OVERRIDE -->|"Yes"| FITSCORE
+    end
+
+    FINAL["Final Output<br/>(10 sections, O0-O9)"]
+
+    VERDICT --> FINAL
+    FITSCORE --> FINAL
 ```
 
 ## File Structure
@@ -118,7 +144,7 @@ flowchart TD
 ```
 job-fit-analyzer/
 ├── job-fit-analyzer/                # THE SKILL (upload this folder as ZIP)
-│   ├── SKILL.md                     # Main engine. 4-stage analysis flow.
+│   ├── SKILL.md                     # Main engine. 5-stage analysis flow.
 │   └── references/                  # Loaded on demand, not at startup
 │       ├── roles.md                 # Role routing: which criteria file to use
 │       ├── scoring-heuristics.md    # Common rules: recency, depth, corroboration
@@ -131,7 +157,7 @@ job-fit-analyzer/
 │           └── business-analysis.md
 ├── examples/
 │   ├── sample-jd.txt               # Example job description input
-│   └── sample-output.md            # Full 9-section analysis output
+│   └── sample-output.md            # Full 10-section analysis output
 ├── ARCHITECTURE.md                  # This file
 ├── CLAUDE.md                        # Writing style rules
 ├── README.md                        # Project overview and setup
@@ -148,4 +174,6 @@ job-fit-analyzer/
 
 **Scoring separation.** The scoring heuristics (common rules) and role criteria (specific dimensions) are in separate files. Common rules change rarely. Role criteria evolve as we get more calibration data. Keeping them apart means you can update PM scoring without touching the shared rules.
 
-**Resume quality is decoupled from fit.** The fit score comes from Stage 3 (dimension scoring). The resume narrative assessment is a separate output in Stage 4. A bad resume doesn't lower the fit score. This was a deliberate product decision to evaluate the person, not just their document.
+**Resume quality is decoupled from fit.** The fit score comes from Stage 4 (dimension scoring). The resume narrative assessment is a separate output in Stage 5. A bad resume doesn't lower the fit score. This was a deliberate product decision to evaluate the person, not just their document.
+
+**Two-layer evaluation.** Screen check runs before dimensional scoring, mirroring how hiring actually works. Hard gate requirements (specific tools, platforms, domains, certifications) are evaluated as Pass/Partial/Fail. The screen verdict tells candidates whether they'd survive initial filtering. The fit score then shows how they'd perform if screened in. This prevents the tool from giving false hope by producing a high fit score for candidates who'd be auto-rejected on a specific missing requirement. No consumer job-matching tool does this - they all produce single composite scores that can mask critical gaps.

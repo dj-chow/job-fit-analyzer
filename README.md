@@ -13,7 +13,7 @@ If you've ever thought "I've done this work, just not under that title," this to
 
 ## The Solution
 
-Upload your resume and LinkedIn profile. Paste a job description. Get an 9-section analysis that evaluates your real work history against what the role needs.
+Upload your resume and LinkedIn profile. Paste a job description. Get a two-layer evaluation: a screen check that tells you if you'd survive initial filtering, then a 10-section analysis that evaluates your real work history against what the role needs.
 
 The skill launches with **4 calibrated roles** (Product Management, AI/ML PM, Software Engineering, Business Analysis) with transparent scoring criteria. Each role has weighted dimensions, level descriptions, and calibration notes. You can see exactly how the score is calculated.
 
@@ -21,6 +21,7 @@ The skill launches with **4 calibrated roles** (Product Management, AI/ML PM, So
 
 | Section | What It Does |
 |---|---|
+| **Screen Check** | Hard gate requirements checked as Pass/Partial/Fail with a verdict: Likely Passes Screen, Borderline, or Likely Filtered Out |
 | **Fit Score + Headline** | 0-100 score with a one-sentence assessment, calibrated to the role type |
 | **Dimension Scores** | Weighted breakdown showing exactly where you're strong and where you're not |
 | **Requirements Map** | Every key requirement mapped to your specific experience with confidence levels |
@@ -35,6 +36,9 @@ The skill launches with **4 calibrated roles** (Product Management, AI/ML PM, So
 ## Demo
 
 Here's a snippet from a [full sample analysis](examples/sample-output.md). A banking PM applying for an AI PM role at a fintech startup:
+
+> **Screen Verdict: Borderline**
+> ML/AI product experience: Fail | Working with ML engineers: Partial
 
 > **Score: 44/100**
 >
@@ -85,12 +89,13 @@ A structured analysis with dimension scores, requirements mapping, and actionabl
 
 ## How It Works
 
-The skill runs a 4-stage analysis:
+The skill runs a 5-stage analysis:
 
-1. **Decode the JD.** Pulls out the 5-7 requirements that actually determine hire/no-hire. Identifies the ideal candidate profile. Loads role-specific scoring criteria.
+1. **Decode the JD.** Pulls out the 5-7 requirements that actually determine hire/no-hire. Classifies each as a hard gate or soft signal. Identifies the ideal candidate profile. Loads role-specific scoring criteria.
 2. **Extract candidate experience.** Reads both documents. Breaks each role into 7 work activity categories (Strategic, Discovery, Definition, Execution, Growth, Technical, Communication) instead of relying on titles.
-3. **Score and evaluate.** Scores each dimension from the role criteria file. Calculates the weighted score with gap penalties and corroboration bonuses. Maps requirements to evidence.
-4. **Generate analysis.** Produces all output sections including the hiring manager perspective and weakness flip strategy.
+3. **Screen check.** Checks hard gate requirements against candidate evidence. Produces Pass/Partial/Fail for each. Generates a screen verdict: Likely Passes Screen, Borderline, or Likely Filtered Out.
+4. **Score and evaluate.** Scores each dimension from the role criteria file. Calculates the weighted score with gap penalties and corroboration bonuses. Maps requirements to evidence.
+5. **Generate analysis.** Produces all 10 output sections including the hiring manager perspective and weakness flip strategy.
 
 ### Scoring Infrastructure
 
@@ -126,6 +131,9 @@ A bad resume doesn't mean a bad candidate. Many strong professionals undersell t
 
 **Why only 4 roles at launch:**
 We could have launched with 10+ roles using generic criteria. But generic scoring produces generic results. Each role has different signals that matter (engineers get evaluated on technical depth, PMs on decision quality, BAs on requirements engineering). We chose depth over breadth. The 4 launch roles have specific dimensions, weights, and calibration notes. More roles will come as we get the data to calibrate them properly.
+
+**Why the screen check is separate from the fit score:**
+Most job matching tools produce a single composite score. A candidate missing a critical hard requirement (like "2+ years managing a decision engine") can still score 75% because their other skills compensate. That's misleading. Real hiring has two layers: first you pass the screen, then you're evaluated on fit. This tool mirrors that. The screen check tells you whether you'd survive initial filtering. The fit score tells you how you'd perform if you got past it. A high fit score with a "Likely Filtered Out" screen verdict means "strong candidate who will probably never get the chance to prove it."
 
 **Why the scoring is fully visible:**
 Most AI tools are black boxes. You get a number but no idea how it was calculated. Every dimension, weight, and calibration rule in this tool is in a readable markdown file. If you disagree with a weight, you can see exactly what it is and why. This also means the community can propose better calibration based on real hiring data.
