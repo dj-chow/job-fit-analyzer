@@ -59,7 +59,7 @@ Here's a snippet from a [full sample output](examples/sample-output.md). A banki
 > A strong product person who knows banking systems well. But the AI gap is real. This person has never shipped an AI product, never written evals, and never worked with ML engineers.
 
 **Adjacent Work Recognition:**
-> **"Solutions Architect" at BMO (2021-2024) = Product Manager**
+> **"Solutions Architect" at Meridian Bank (2021-2024) = Product Manager**
 > Title says architect. Work says PM. This person looked into repeat issues by mapping workflows across systems. They led cross-team sessions to align people on what the problem was...
 
 **What the Hiring Manager Is Thinking:**
@@ -157,6 +157,8 @@ Most AI tools are black boxes. You get a number but no idea how it was found. Ev
 **Titles are a bad proxy for work.** Building the title-to-work gap table showed 14+ common titles where the real work often differs from what the title implies. "Solutions Architect" doing PM work is just one case. This happens in every function. ATS systems filter on titles. So a person doing PM work under an architect title may never reach a human reviewer.
 
 **AI PM is truly different from normal PM.** After reading hiring talks from OpenAI, Google, and Meta, it became clear that AI PM roles need their own scoring rules. The core output shifts from PRDs to eval frameworks. Results are less certain. Planning happens "in pencil, not pen." A normal PM with 10 years of work but zero AI products will score in the 40s on AI PM criteria. That's honest, and the tool should show it.
+
+**PII leaks are easy to miss.** The first version of our sample output used real company names and dates from the test candidate. Combined with the author credit in the README, anyone could trace the sample back to a real person. We caught it and swapped in fictional names. Lesson: treat all personal data as privileged. Always anonymize before committing. This is now a rule in our CLAUDE.md.
 
 **The hardest section was "What the Hiring Manager Is Thinking."** It's easy to make it too vague ("looks like a strong person") or too harsh ("instant reject"). The right tone is honest but specific. Name the exact pause, the bias behind it, and what would change their mind.
 

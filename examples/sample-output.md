@@ -10,7 +10,7 @@ Before scoring areas, the tool checks if the person clears the hard gate needs f
 
 | Hard Gate | What the JD Asks For | Candidate Evidence | Verdict |
 |---|---|---|---|
-| ML/AI product experience | "Experience working with ML/AI products or data-intensive platforms" | Worked with vendor ML analytics platforms at BMO. Helped with an NLP product at Aspiring Minds, but that was 10+ years ago and in a consulting role. This is exposure, not ownership. No signs of defining model needs, running evals, or owning an AI product. | **Fail** |
+| ML/AI product experience | "Experience working with ML/AI products or data-intensive platforms" | Worked with vendor ML analytics platforms at Meridian Bank. Helped with an NLP product at TalentScope, but that was 10+ years ago and in a consulting role. This is exposure, not ownership. No signs of defining model needs, running evals, or owning an AI product. | **Fail** |
 | Work with ML engineers and data scientists | "Demonstrated ability to work with technical teams (ML engineers, data scientists)" | Worked with eng and data teams across many programs. Led sessions with business, data, and eng groups. But no direct mention of working with ML engineers, ML researchers, or data scientists. The tech teamwork is real, but the ML flavor is missing. | **Partial** |
 
 **Screen verdict: Borderline**
@@ -31,7 +31,7 @@ Using AI/ML Product Management criteria from `role-criteria/ai-product-managemen
 | Technical Fluency for AI | 20% | 35 | Weak | Worked with data teams and knew system links. No signs of talking about model limits, evals, or training methods. |
 | Eval and Quality Framework Thinking | 15% | 45 | Partial | Built self-serve dashboards with ops metrics. Has a testing mindset from reporting work. But no work with model quality thresholds or model review. |
 | Product Ownership and Shipping | 15% | 82 | Strong | Owned risk reporting platform as Product Owner. Shipped self-serve dashboards, drove adoption, tracked results. Clear end-to-end ownership. |
-| Breadth of Domain Experience | 15% | 50 | Partial | Deep in one domain (banking risk). Some breadth from edtech (UpGrad) and test products (Aspiring Minds). But career is mostly in financial services. |
+| Breadth of Domain Experience | 15% | 50 | Partial | Deep in one domain (banking risk). Some breadth from edtech (LearnPath) and test products (TalentScope). But career is mostly in financial services. |
 | Stakeholder Alignment | 10% | 90 | Strong | Every role shows cross-team alignment. Resolved design calls without authority across risk, tech, ops, and governance teams. This is the person's superpower. |
 
 **Weighted average:** 46.3
@@ -52,9 +52,9 @@ A strong product operator who knows regulated systems inside out, but flagged at
 
 | Requirement | Evidence From Candidate | Confidence | Source |
 |---|---|---|---|
-| 5+ years PM in fintech/financial services | 9+ years at BMO. Formal PM title for 2.5 years, but PM-level work for 6+ years when you count the Solutions Architect and Delivery Lead roles. | Strong Match | Both |
-| Experience with ML/AI products or data platforms | Worked alongside vendor ML analytics platforms in the FRTB program. Helped with an NLP product at Aspiring Minds. But this was exposure, not ownership. Never defined model needs or eval criteria. | Gap | LinkedIn |
-| Understanding of regulatory environments | This is where the person shines. 6+ years inside FRTB regulatory reporting. Broke down complex rules into specs that dev teams could build against. Balanced compliance, feasibility, and usability in solution design. | Strong Match | Both |
+| 5+ years PM in fintech/financial services | 9+ years at Meridian Bank. Formal PM title for 2.5 years, but PM-level work for 6+ years when you count the Solutions Architect and Delivery Lead roles. | Strong Match | Both |
+| Experience with ML/AI products or data platforms | Worked alongside vendor ML analytics platforms in the Basel IV program. Helped with an NLP product at TalentScope. But this was exposure, not ownership. Never defined model needs or eval criteria. | Gap | LinkedIn |
+| Understanding of regulatory environments | This is where the person shines. 6+ years inside Basel IV regulatory reporting. Broke down complex rules into specs that dev teams could build against. Balanced compliance, feasibility, and usability in solution design. | Strong Match | Both |
 | Work with ML engineers and data scientists | Worked with eng and data teams across many programs. Led sessions with business, data, and eng groups. But no direct mention of ML engineers, researchers, or data scientists. | Partial Match | Both |
 | Define and track product metrics (B2B) | Cut manual reporting requests by about 60% with self-serve dashboards. Raised agile maturity from 3.6 to 4.1. These are real numbers but they're ops-level, not product-level. No retention curves, adoption funnels, or model performance metrics. | Partial Match | Resume |
 | Stakeholder management across technical and non-technical | Strongest signal in the profile. Every role shows this. Risk teams, tech teams, ops, governance, vendors. Resolved key design calls without position power. | Strong Match | Both |
@@ -62,7 +62,7 @@ A strong product operator who knows regulated systems inside out, but flagged at
 
 ## 3. Adjacent Work Recognition
 
-**"Solutions Architect" at BMO (2021-2024) = Product Manager**
+**"Solutions Architect" at Meridian Bank (2021-2024) = Product Manager**
 Title says architect. Work says PM. This person looked into repeat issues by mapping end-to-end flows across systems. They led cross-team sessions to align business, data, and eng groups on problem scope. They broke down regulatory needs into use cases with acceptance criteria. They proposed fixes that balanced many constraints.
 
 That's problem framing, team alignment, requirements work, and solution scoping. Classic PM work.
@@ -71,7 +71,7 @@ This matters because it extends their real PM time from 2.5 years to 5.5+ years.
 
 Proof strength: Strong. Many specific cases across both docs.
 
-**"Business Analyst" at BMO (2017-2019) = Data Product Thinking**
+**"Business Analyst" at Meridian Bank (2017-2019) = Data Product Thinking**
 Looked at source data and database structures using SQL. Worked with engineers to define reporting logic. Made sure dashboards showed what people needed to make calls, not just raw system outputs.
 
 That last part is the key. Turning raw data into tools people actually use to decide things is data product thinking.
@@ -80,7 +80,7 @@ This matters for the "data platforms" need. Shows the person can bridge data and
 
 Proof strength: Moderate. The work fits but is written in BA terms.
 
-**Product Consultant at Aspiring Minds = Early AI Exposure**
+**Product Consultant at TalentScope = Early AI Exposure**
 Ran stats work linking test results with job outcomes. Led proof-of-concept studies for big clients on NLP-based test products.
 
 This gives a thin link to ML product work. But it was 10+ years ago and in a consulting role. Not ownership.
@@ -91,7 +91,7 @@ Proof strength: Weak. Too old and too small to carry much weight.
 
 "Nine years at one bank. Okay, loyal or stuck? Let me scan. Product Owner, Solutions Architect, Delivery Lead. None of these scream AI PM. The regulatory angle is notable though. We need someone who gets compliance and we've been struggling to find that.
 
-But wait. I need this person talking to our ML team about model review and deploy plans. I'm not seeing any of that. The NLP thing from Aspiring Minds is too old to count.
+But wait. I need this person talking to our ML team about model review and deploy plans. I'm not seeing any of that. The NLP thing from TalentScope is too old to count.
 
 The 60% cut in manual reporting is a solid number. Shows they can ship and measure. But our world is different. We ship models, not dashboards.
 
@@ -112,21 +112,21 @@ To make this flip work, the person should also show they're building AI fluency 
 
 ## 6. Top 3 Strongest Stories
 
-**1. Self-serve risk reporting platform (Product Owner, BMO)**
+**1. Self-serve risk reporting platform (Product Owner, Meridian Bank)**
 Cut manual executive reporting requests by about 60%. Rebuilt messy risk governance flows into self-serve dashboards. Defined the MVP backlog, aligned three teams (risk, ops, tech), and drove adoption through onboarding and change management.
 
 Why it lands: End-to-end product ownership in a regulated financial setting. Same context as the target role. The 60% number sticks.
 
 The hook: "Replaced a process where analysts hand-built reports for executives, with a platform where executives could get answers themselves."
 
-**2. Cross-team alignment on FRTB program (Solutions Architect, BMO)**
+**2. Cross-team alignment on Basel IV program (Solutions Architect, Meridian Bank)**
 Resolved key design calls across risk, tech, and ops teams within a multi-year regulatory program. Did this without direct authority over any of those teams. Turned unwritten know-how into specs that dev teams could build against.
 
 Why it lands: The "without direct authority" detail is pure PM signal. The regulatory context maps straight to this role's compliance needs.
 
 The hook: "Nobody owned the full picture. I made myself the person who did."
 
-**3. NLP test product (Aspiring Minds)**
+**3. NLP test product (TalentScope)**
 Worked on an NLP-based test product backing multi-million-dollar enterprise deals. Led proof-of-concept studies linking test results to job outcomes.
 
 Why it lands: The only direct AI/ML touch point. While early in their career, it shows the person has been in the room where ML products get built and sold.
@@ -181,7 +181,7 @@ The resume is okay but it hides the person's real strength. Three specific probl
 
 2. **Key numbers are missing.** The Product Owner role has the 60% number, which is good. But the Solutions Architect role (3 years) and Delivery Lead role have almost no measured results. LinkedIn mentions "raising agile maturity from 3.6 to 4.1." That should be on the resume.
 
-3. **The AI link is hidden.** The Aspiring Minds work with NLP products and stats is barely described. For an AI PM role, this needs much more detail. What was the NLP model doing? What were the client calls based on? What did the person learn about ML products? Every detail here counts.
+3. **The AI link is hidden.** The TalentScope work with NLP products and stats is barely described. For an AI PM role, this needs much more detail. What was the NLP model doing? What were the client calls based on? What did the person learn about ML products? Every detail here counts.
 
 ---
 

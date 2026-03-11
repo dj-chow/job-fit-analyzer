@@ -12,3 +12,6 @@ desktop.ini
 # Environment
 .env
 .env.local
+
+# Session logs (may contain PII)
+SESSION_LOG.md

@@ -9,3 +9,9 @@
 - Use simple words over complex ones. "Use" not "utilize." "Show" not "demonstrate." "Help" not "facilitate."
 - Vary sentence length. Mix short punchy sentences with slightly longer ones.
 - When in doubt, read it out loud. If it sounds like a press release, rewrite it.
+
+## PII and Personal Data
+
+- Treat all personal data as privileged. Never publish names, company names, dates, or other details that could identify a real person without explicit permission.
+- Sample outputs and examples must use fictional names and companies. No real candidate data in any committed file.
+- If you generate an analysis using real data, ask before including any of it in repo files, docs, or public content.
