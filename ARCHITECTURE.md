@@ -143,7 +143,7 @@ flowchart TD
 
 ```
 job-fit-analyzer/
-├── job-fit-analyzer/                # THE SKILL (upload this folder as ZIP)
+├── skill/                           # THE SKILL (upload this folder)
 │   ├── SKILL.md                     # Main engine. 5-stage analysis flow.
 │   └── references/                  # Loaded on demand, not at startup
 │       ├── roles.md                 # Role routing: which criteria file to use

@@ -45,8 +45,8 @@ Launch-ready. Goal is a public GitHub repo that earns 40-50 stars. README shows 
 
    ```
    job-fit-analyzer/
-   ├── job-fit-analyzer/                # THE SKILL (upload this folder as ZIP)
-   │   ├── SKILL.md                     # Main engine. 4-stage analysis flow.
+   ├── skill/                           # THE SKILL (upload this folder)
+   │   ├── SKILL.md                     # Main engine. 5-stage analysis flow.
    │   └── references/                  # Loaded on demand, not at startup
    │       ├── roles.md                 # Role routing: which criteria file to use
    │       ├── scoring-heuristics.md    # Common rules: recency, depth, corroboration

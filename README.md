@@ -72,23 +72,29 @@ Here's a snippet from a [full sample output](examples/sample-output.md). A banki
 ### Prerequisites
 - A Claude account (Free, Pro, or Team plan)
 
+### One-liner Install (Claude Code)
+
+```bash
+git clone https://github.com/dj-chow/job-fit-analyzer.git /tmp/job-fit-analyzer && \
+  mkdir -p ~/.claude/skills && \
+  cp -r /tmp/job-fit-analyzer/skill ~/.claude/skills/job-fit-analyzer
+```
+
+The skill starts when you give it a resume, LinkedIn profile, and job post.
+
 ### Setup for Claude Web (claude.ai)
 
 1. Download this repo as a ZIP (Code > Download ZIP)
 2. Go to [claude.ai](https://claude.ai) > Settings > Customize > Skills
 3. Click "+" then "Upload a skill"
-4. Upload the `job-fit-analyzer` folder as a ZIP
+4. Upload the `skill/` folder from the ZIP
 5. Start a new chat, upload your resume PDF + LinkedIn PDF, paste a job post, and ask Claude to check your fit
 
-### Setup for Claude Code
-
-1. Clone this repo
-2. Copy the `job-fit-analyzer/` folder to `~/.claude/skills/`
-3. The skill starts when you give it a resume, LinkedIn profile, and job post
+### Verify
 
 ```bash
-git clone https://github.com/dj-chow/job-fit-analyzer.git
-cp -r job-fit-analyzer/job-fit-analyzer ~/.claude/skills/
+ls ~/.claude/skills/job-fit-analyzer/
+# You should see: SKILL.md  references/
 ```
 
 ### Example
@@ -116,7 +122,7 @@ The skill runs a 5-stage review:
 The scoring system is open and clear. Anyone can look under the hood:
 
 ```
-job-fit-analyzer/references/
+skill/references/
 ├── roles.md                         # Which roles are supported
 ├── scoring-heuristics.md            # Common scoring rules across all roles
 ├── role-criteria/

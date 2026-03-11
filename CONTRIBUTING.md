@@ -8,7 +8,7 @@ Know where things live before you start.
 
 ```
 job-fit-analyzer/
-├── job-fit-analyzer/              # The skill itself
+├── skill/                         # The skill itself
 │   ├── SKILL.md                   # Main analysis engine (4-stage flow)
 │   └── references/
 │       ├── roles.md               # Lists supported roles and routing rules
