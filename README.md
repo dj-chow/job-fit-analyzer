@@ -67,12 +67,11 @@ Here's a snippet from a [full sample output](examples/sample-output.md). A banki
 
 [See the full sample output](examples/sample-output.md)
 
-## How to Use
+## Setup
 
-### Prerequisites
-- A Claude account (Free, Pro, or Team plan)
+You need a Claude account (Free, Pro, or Team plan). Pick the option that fits how you use Claude.
 
-### One-liner Install (Claude Code)
+### Option 1: Claude Code (one-liner)
 
 ```bash
 git clone https://github.com/dj-chow/job-fit-analyzer.git /tmp/job-fit-analyzer && \
@@ -80,22 +79,33 @@ git clone https://github.com/dj-chow/job-fit-analyzer.git /tmp/job-fit-analyzer 
   cp -r /tmp/job-fit-analyzer/skill ~/.claude/skills/job-fit-analyzer
 ```
 
-The skill starts when you give it a resume, LinkedIn profile, and job post.
+### Option 2: Claude Code (symlink for auto-updates)
 
-### Setup for Claude Web (claude.ai)
+```bash
+git clone https://github.com/dj-chow/job-fit-analyzer.git ~/job-fit-analyzer && \
+  mkdir -p ~/.claude/skills && \
+  ln -s ~/job-fit-analyzer/skill ~/.claude/skills/job-fit-analyzer
+```
+
+Pull new updates any time with `cd ~/job-fit-analyzer && git pull`.
+
+### Option 3: Claude Web (claude.ai)
 
 1. Download this repo as a ZIP (Code > Download ZIP)
 2. Go to [claude.ai](https://claude.ai) > Settings > Customize > Skills
 3. Click "+" then "Upload a skill"
 4. Upload the `skill/` folder from the ZIP
-5. Start a new chat, upload your resume PDF + LinkedIn PDF, paste a job post, and ask Claude to check your fit
 
-### Verify
+### Verify (Claude Code)
 
 ```bash
 ls ~/.claude/skills/job-fit-analyzer/
 # You should see: SKILL.md  references/
 ```
+
+### Use It
+
+Upload your resume PDF and LinkedIn PDF. Paste a job post. Ask Claude to check your fit. The skill kicks in on its own.
 
 ### Example
 
