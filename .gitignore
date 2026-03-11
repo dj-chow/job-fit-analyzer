@@ -15,3 +15,6 @@ desktop.ini
 
 # Session logs (may contain PII)
 SESSION_LOG.md
+
+# Test JD files
+*.docx
