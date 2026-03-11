@@ -18,3 +18,6 @@ SESSION_LOG.md
 
 # Test JD files
 *.docx
+jd-samples/
+drafts/
+test-results/

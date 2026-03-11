@@ -45,6 +45,16 @@ When reading a JD, pull out each rule and sort it:
 
 Most JDs have 1-3 hard gates and 5-10 soft signals. Some JDs have zero hard gates. Flag when a JD has none. The screen check will show "No hard gates found."
 
+### Title Match Check
+
+Always check if the candidate has ever held a title in the same family as the target role. For example, a "Technical Program Manager" role should look for any form of "Program Manager," "TPM," "Delivery Manager," or similar. This applies to all roles, supported or not.
+
+If no title in the role family appears anywhere in the resume or LinkedIn, flag it as a screening risk. Recruiters and ATS systems often filter by title keywords. A candidate who has done the work but never held the title will be invisible in keyword searches.
+
+This does NOT lower the fit score. Title absence is a visibility problem, not a skills problem. But it must show up in two places:
+1. **Screen Check (Section 0):** Add a row for "Title match to role family" with a Pass (held the title), Partial (held a close title like "Delivery Lead" for a TPM role), or Fail (no title in the family).
+2. **What the Hiring Manager Is Thinking (Section 4):** Call out that the title gap makes the resume harder to find and harder to read at a glance.
+
 ### Checking Each Hard Gate
 
 For each hard gate, check the resume and LinkedIn:

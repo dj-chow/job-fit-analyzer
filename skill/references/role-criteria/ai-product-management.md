@@ -35,7 +35,7 @@ Can they talk about model limits, data quality, evals, and training methods with
 |---|---|
 | Strong (80-100) | Can discuss recall vs. precision, training data needs, model eval rules, and deploy plans. Has worked with ML devs or researchers. |
 | Solid (60-79) | Gets ML concepts well enough to have good talks with tech teams. Has worked on data-heavy products. |
-| Partial (40-59) | General tech skills. Fine with APIs and data but little ML-specific grasp. |
+| Partial (40-59) | Has built products that depend on data pipelines or ML APIs. Can explain what a model does in their product and why it sometimes fails. Knows the difference between training and inference. But can't discuss model tradeoffs, data quality needs, or eval methods at a level that would hold up with ML engineers. Just using dashboards, reading schemas, or calling APIs without understanding the ML behind them is Weak, not Partial. |
 | Weak (20-39) | Non-tech background. Learning AI ideas but can't yet go deep with ML teams. |
 | Gap (0-19) | No tech fluency proof. |
 
@@ -46,7 +46,7 @@ This is the new PM super skill in AI. Can they define what "good" looks like for
 |---|---|
 | Strong (80-100) | Has written evals, set quality bars, or built test setups for AI outputs. Gets MVQ (Minimum Viable Quality). |
 | Solid (60-79) | Has set success metrics for fuzzy products. Has run A/B tests or done work that could transfer. |
-| Partial (40-59) | Has tracked metrics but has not dealt with the blur of guess-based outputs. |
+| Partial (40-59) | Has defined quality rules for outputs where "correct" is not binary. Examples: ranking relevance, matching accuracy, or scoring content quality. Shows they thought about false positives vs. false negatives, even outside ML. Just running A/B tests, tracking conversion funnels, or setting pass/fail metrics is Weak for this dimension. Those don't prove you can judge fuzzy outputs. |
 | Weak (20-39) | Metrics work is limited to ops or vanity metrics. |
 | Gap (0-19) | No proof of quality framework thinking. |
 
